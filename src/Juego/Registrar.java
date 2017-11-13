@@ -5,15 +5,23 @@
  */
 package Juego;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author AliCeleita
  */
 public class Registrar extends javax.swing.JPanel {
-
-    /**
-     * Creates new form Registrar
-     */
+public int doc1, edad1;
+    public LocalDateTime fecSeg;
+    public String nom1,ape1,dia,mes,año,fecNac;
+    public LocalDate nac1;
+    private Persona per;
+    
     public Registrar() {
         initComponents();
     }
@@ -27,20 +35,156 @@ public class Registrar extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        labDoc = new javax.swing.JLabel();
+        doc = new javax.swing.JTextField();
+        labNom = new javax.swing.JLabel();
+        nom = new javax.swing.JTextField();
+        labApe = new javax.swing.JLabel();
+        ape = new javax.swing.JTextField();
+        labEdad = new javax.swing.JLabel();
+        edad = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        nac = new com.toedter.calendar.JDateChooser();
+        url = new javax.swing.JTextField();
+        exIm = new javax.swing.JButton();
+        imagen = new javax.swing.JLabel();
+        reg = new javax.swing.JButton();
+
+        labDoc.setText("Documento");
+
+        labNom.setText("Nombre");
+
+        labApe.setText("Apellido");
+
+        labEdad.setText("Edad");
+
+        jLabel1.setText("Fecha de nacimiento");
+
+        url.setText("Direccion Imagen");
+
+        exIm.setText("Examinar");
+
+        reg.setText("Registrar");
+        reg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                regActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(labDoc)
+                                    .addComponent(labNom)
+                                    .addComponent(labApe)
+                                    .addComponent(labEdad))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(doc)
+                                    .addComponent(nom)
+                                    .addComponent(ape)
+                                    .addComponent(edad, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(24, 24, 24)
+                                .addComponent(url, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(exIm)
+                                .addContainerGap(34, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(75, 75, 75))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(reg)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(labDoc)
+                                .addComponent(doc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(url, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(exIm)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labNom)
+                            .addComponent(nom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labApe)
+                            .addComponent(ape, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(labEdad)
+                            .addComponent(edad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(nac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(reg)
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regActionPerformed
+        if(ape.getText().isEmpty()||doc.getText().isEmpty()||edad.getText().isEmpty()||nom.getText().isEmpty()||url.getText().isEmpty()||nac.getDate()==null){
+            JOptionPane.showMessageDialog(null,"Digite todos los datos");
+        }else{
+            try{
+                doc1=Integer.parseInt(doc.getText());
+                nom1=(String)nom.getText();
+                ape1=(String)ape.getText();
+                dia=Integer.toString(nac.getCalendar().get(Calendar.DAY_OF_MONTH));
+                mes=Integer.toString((nac.getCalendar().get(Calendar.MONTH))+1);
+                año=Integer.toString(nac.getCalendar().get(Calendar.YEAR));
+                fecNac=dia+"/"+mes+"/"+año;
+                nac1 = LocalDate.parse(fecNac, DateTimeFormatter.ofPattern("d/M/yyyy"));
+                edad1=Integer.parseInt(edad.getText());
+                fecSeg=LocalDateTime.now();
+            }catch(Exception asd){
+                JOptionPane.showMessageDialog(null,"Datos incorrectos");
+                per=Persona.crear(0, doc1, nom1, ape1, nac1, edad1, fecSeg);
+            }
+            
+        }
+    }//GEN-LAST:event_regActionPerformed
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ape;
+    private javax.swing.JTextField doc;
     private javax.swing.JTextField edad;
+    private javax.swing.JButton exIm;
+    private javax.swing.JLabel imagen;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel labApe;
+    private javax.swing.JLabel labDoc;
+    private javax.swing.JLabel labEdad;
+    private javax.swing.JLabel labNom;
+    private com.toedter.calendar.JDateChooser nac;
+    private javax.swing.JTextField nom;
+    private javax.swing.JButton reg;
+    private javax.swing.JTextField url;
     // End of variables declaration//GEN-END:variables
 }
