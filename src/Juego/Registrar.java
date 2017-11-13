@@ -41,5 +41,6 @@ public class Registrar extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField edad;
     // End of variables declaration//GEN-END:variables
 }
