@@ -5,6 +5,8 @@
  */
 package Juego;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author AliCeleita
@@ -16,6 +18,7 @@ public class Mostrar extends javax.swing.JPanel {
      */
     public Mostrar() {
         initComponents();
+        configuracion();
     }
 
     /**
@@ -50,7 +53,7 @@ public class Mostrar extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -60,7 +63,16 @@ public class Mostrar extends javax.swing.JPanel {
                 .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
+    public void configuracion(){
+        DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Documento");
+        modelo.addColumn("Nombre");
+        modelo.addColumn("Apellido");
+        modelo.addColumn("Edad");
+        modelo.addColumn("Fecha de Nacimiento");
+        modelo.addColumn("Fecha de Registro");
+        mosReg.setModel(modelo);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
