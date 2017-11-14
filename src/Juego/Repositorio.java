@@ -24,7 +24,7 @@ public class Repositorio {
             sentenciaP.setInt(1,persona.getDoc());
             sentenciaP.setString(2, persona.getNom());
             sentenciaP.setString(3, persona.getApe());
-            sentenciaP.setString(4, String.valueOf(persona.getEdad()));
+            sentenciaP.setInt(4,persona.getEdad());
             sentenciaP.setDate(5,persona.getFecNac());
             sentenciaP.setTimestamp(6,persona.getFecSeg());
             sentenciaP.executeUpdate();
