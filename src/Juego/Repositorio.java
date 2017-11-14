@@ -10,6 +10,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import Database.DBManager;
+import java.util.ArrayList;
 
 public class Repositorio {
 	
@@ -35,64 +36,17 @@ public class Repositorio {
         }
 
     }
-
-
-
-   /* public static Persona obtener(int id) {
-        try {
-            String query = "SELECT * FROM personas WHERE id = ?;";
-            PreparedStatement sentenciaP = database.open().prepareStatement(query);
-            sentenciaP.setInt(1, id);
-
-            ResultSet resultado = sentenciaP.executeQuery();
-
-            sentenciaP.close();
-            database.close();
-
-            while (resultado.next()) {
-                return Persona.crear(resultado.getInt("id"),resultado.getInt("documento"), resultado.getString("nombre"),resultado.getString("ape"),resultado.getDate("fecNac"),resultado.getInt("edad"),resultado.getString("cargo"),resultado.getDate("fecReg"));
-            }
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return null;
-    }
     
-    
-    public static Persona buscar(String documento) {
-        try {
-            String query = "SELECT * FROM personas WHERE documento = ?;";
-            PreparedStatement sentenciaP = database.open().prepareStatement(query);
-            sentenciaP.setString(1, documento);
-
-            ResultSet resultado = sentenciaP.executeQuery();
-
-            while (resultado.next()) {
-                return Persona.crear(resultado.getInt("ide"), Integer.parseInt(resultado.getString("documento")), resultado.getString("nombre"),resultado.getString("apellido"),Integer.parseInt(resultado.getString("edad")), resultado.getString("fecha"),resultado.getString("tipo"),resultado.getString("fechaSeguridad"));
-            }
-            
-            sentenciaP.close();
-            database.close();
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return null;
-    }
-
     public static ArrayList<Persona> obtenerTodos() {
         ArrayList<Persona> personas = new ArrayList<Persona>();
 
         try {
-            String query = "SELECT * FROM personas;";
+            String query = "SELECT * FROM registro;";
             PreparedStatement sentenciaP = database.open().prepareStatement(query);
             ResultSet resultado = sentenciaP.executeQuery();
 
             while (resultado.next()) {
-                personas.add(Persona.crear(resultado.getInt("ide"), Integer.parseInt(resultado.getString("documento")), resultado.getString("nombre"),resultado.getString("apellido"),Integer.parseInt(resultado.getString("edad")), resultado.getString("fecha"),resultado.getString("tipo"),resultado.getString("fechaSeguridad")));
+                personas.add(Persona.crear(resultado.getInt("id"), resultado.getInt("doc"), resultado.getString("nom"),resultado.getString("ape"),resultado.getInt("edad"),resultado.getDate("fecNac"),resultado.getTimestamp("fecReg")));
             }
 
             sentenciaP.close();
@@ -105,27 +59,4 @@ public class Repositorio {
 
         return personas;
     }
-    public static ArrayList<Evento> obtenerTodos1() {
-        ArrayList<Evento> evento = new ArrayList<Evento>();
-
-        try {
-            String query = "SELECT * FROM evento;";
-            PreparedStatement sentenciaP = database.open().prepareStatement(query);
-            ResultSet result = sentenciaP.executeQuery();
-
-            while (result.next()) {
-                evento.add(Evento.crear(result.getInt("id"),result.getString("fechaEvento"),result.getString("horaInicio"),result.getString("horaFin"), result.getString("nombreEvento"),result.getString("descripcion"),Integer.parseInt(result.getString("recreador")),result.getString("fechaSeg")));
-            }
-
-            sentenciaP.close();
-            database.close();
-
-            return evento;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return evento;
-    }*/
 }
-
