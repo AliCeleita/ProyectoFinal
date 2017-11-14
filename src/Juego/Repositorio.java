@@ -29,7 +29,6 @@ public class Repositorio {
             sentenciaP.setDate(5,persona.getFecNac());
             sentenciaP.setTimestamp(6,persona.getFecSeg());
             sentenciaP.executeUpdate();
-            sentenciaP.close();
             database.close();
         } catch (SQLException e) {
             e.printStackTrace();
