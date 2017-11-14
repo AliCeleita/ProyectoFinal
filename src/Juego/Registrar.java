@@ -5,10 +5,12 @@
  */
 package Juego;
 
+import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.sql.Date;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,9 +19,10 @@ import javax.swing.JOptionPane;
  */
 public class Registrar extends javax.swing.JPanel {
 public int doc1, edad1;
-    public LocalDateTime fecSeg;
+    public Timestamp fecSeg;
     public String nom1,ape1,dia,mes,año,fecNac;
     public LocalDate nac1;
+    public Date nac2;
     private Persona per;
     
     public Registrar() {
@@ -161,14 +164,16 @@ public int doc1, edad1;
                 fecNac=dia+"/"+mes+"/"+año;
                 nac1 = LocalDate.parse(fecNac, DateTimeFormatter.ofPattern("d/M/yyyy"));
                 edad1=Integer.parseInt(edad.getText());
-                fecSeg=LocalDateTime.now();
+                LocalDateTime hoy=LocalDateTime.now();
+                fecSeg=Timestamp.valueOf(hoy);
+                nac2=Date.valueOf(nac1);
             }catch(NumberFormatException asd){
                 JOptionPane.showMessageDialog(null,"Datos incorrectos");
             }
             switch(evt.getActionCommand())
             {
                 case "Registrar":
-                    per=Persona.crear(0, doc1, nom1, ape1, edad1, nac1,fecSeg);
+                    per=Persona.crear(0, doc1, nom1, ape1, edad1, nac2,fecSeg);
                     Repositorio.crear(per);
                     JOptionPane.showMessageDialog(this, "Persona creada satisfactoriamente", "Bien", JOptionPane.INFORMATION_MESSAGE);
                 break;

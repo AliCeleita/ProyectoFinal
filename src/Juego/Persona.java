@@ -5,8 +5,8 @@
  */
 package Juego;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.sql.Date;
+import java.sql.Timestamp;
 
 /**
  *
@@ -15,12 +15,12 @@ import java.time.LocalDateTime;
 public class Persona {
     private int doc,id;
     private int edad;
-    private LocalDateTime fecSeg;
+    private Timestamp fecSeg;
     private String nom;
     private String ape;
-    private LocalDate fecNac;
+    private Date fecNac;
 
-public Persona(int id,int doc,String nom,String ape,int edad,LocalDate fecNac,LocalDateTime fecSeg){
+public Persona(int id,int doc,String nom,String ape,int edad,Date fecNac,Timestamp fecSeg){
         this.id=id;
         this.doc=doc;
         this.nom=nom;
@@ -46,11 +46,11 @@ public Persona(int id,int doc,String nom,String ape,int edad,LocalDate fecNac,Lo
         this.edad = edad;
     }
 
-    public LocalDateTime getFecSeg() {
+    public Timestamp getFecSeg() {
         return fecSeg;
     }
 
-    public void setFecSeg(LocalDateTime fecSeg) {
+    public void setFecSeg(Timestamp fecSeg) {
         this.fecSeg = fecSeg;
     }
 
@@ -70,11 +70,11 @@ public Persona(int id,int doc,String nom,String ape,int edad,LocalDate fecNac,Lo
         this.ape = ape;
     }
 
-    public LocalDate getFecNac() {
+    public Date getFecNac() {
         return fecNac;
     }
 
-    public void setFecNac(LocalDate fecNac) {
+    public void setFecNac(Date fecNac) {
         this.fecNac = fecNac;
     }
 
@@ -85,7 +85,7 @@ public Persona(int id,int doc,String nom,String ape,int edad,LocalDate fecNac,Lo
     public void setId(int id) {
         this.id = id;
     }
-    public static Persona crear(int id,int doc,String nom,String ape,int edad,LocalDate fecNac,LocalDateTime fecSeg) {
+    public static Persona crear(int id,int doc,String nom,String ape,int edad,Date fecNac,Timestamp fecSeg) {
         return new Persona(id,doc,nom,ape,edad,fecNac,fecSeg);
     }
 }

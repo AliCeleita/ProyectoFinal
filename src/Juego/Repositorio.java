@@ -9,11 +9,6 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.sql.Time;
-import java.time.ZoneId;
-import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
-import java.util.Date;
 import Database.DBManager;
 
 public class Repositorio {
@@ -30,8 +25,8 @@ public class Repositorio {
             sentenciaP.setString(2, persona.getNom());
             sentenciaP.setString(3, persona.getApe());
             sentenciaP.setString(4, String.valueOf(persona.getEdad()));
-            sentenciaP.setDate(5, (java.sql.Date) Date.from(persona.getFecNac().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-            sentenciaP.setDate(6,(java.sql.Date)Date.from(persona.getFecSeg().atZone(ZoneId.systemDefault()).toInstant()));
+            sentenciaP.setDate(5,persona.getFecNac());
+            sentenciaP.setTimestamp(6,persona.getFecSeg());
             sentenciaP.executeUpdate();
             sentenciaP.close();
             database.close();
