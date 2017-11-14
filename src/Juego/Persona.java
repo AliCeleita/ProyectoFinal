@@ -20,7 +20,7 @@ public class Persona {
     private String ape;
     private LocalDate fecNac;
 
-public Persona(int id,int doc,String nom,String ape,LocalDate fecNac,int edad,LocalDateTime fecSeg){
+public Persona(int id,int doc,String nom,String ape,int edad,LocalDate fecNac,LocalDateTime fecSeg){
         this.id=id;
         this.doc=doc;
         this.nom=nom;
@@ -85,8 +85,8 @@ public Persona(int id,int doc,String nom,String ape,LocalDate fecNac,int edad,Lo
     public void setId(int id) {
         this.id = id;
     }
-    public static Persona crear(int id,int doc,String nom,String ape,LocalDate fecNac,int edad,LocalDateTime fecSeg) {
-        return new Persona(id,doc,nom,ape,fecNac,edad,fecSeg);
+    public static Persona crear(int id,int doc,String nom,String ape,int edad,LocalDate fecNac,LocalDateTime fecSeg) {
+        return new Persona(id,doc,nom,ape,edad,fecNac,fecSeg);
     }
 }
 

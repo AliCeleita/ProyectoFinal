@@ -162,10 +162,20 @@ public int doc1, edad1;
                 nac1 = LocalDate.parse(fecNac, DateTimeFormatter.ofPattern("d/M/yyyy"));
                 edad1=Integer.parseInt(edad.getText());
                 fecSeg=LocalDateTime.now();
-            }catch(Exception asd){
+            }catch(NumberFormatException asd){
                 JOptionPane.showMessageDialog(null,"Datos incorrectos");
-                per=Persona.crear(0, doc1, nom1, ape1, nac1, edad1, fecSeg);
             }
+            switch(evt.getActionCommand())
+            {
+                case "Registrar":
+                    per=Persona.crear(0, doc1, nom1, ape1, edad1, nac1,fecSeg);
+                    Repositorio.crear(per);
+                    JOptionPane.showMessageDialog(this, "Persona creada satisfactoriamente", "Bien", JOptionPane.INFORMATION_MESSAGE);
+                break;
+                default:
+                    JOptionPane.showMessageDialog(this, "Persona no creada", "mal", JOptionPane.INFORMATION_MESSAGE);
+            }
+            
             
         }
     }//GEN-LAST:event_regActionPerformed

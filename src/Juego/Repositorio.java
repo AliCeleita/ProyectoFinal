@@ -24,13 +24,13 @@ public class Repositorio {
     
     public static void crear (Persona persona) {
         try {
-            String query = "INSERT INTO personas (doc, nom, ape,fecNac,edad,fecReg) VALUES (?, ?, ?, ?, ?, ?);";
+            String query = "INSERT INTO registro (doc, nom, ape, edad, fecNac, fecReg) VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement sentenciaP = database.open().prepareStatement(query);
             sentenciaP.setInt(1,persona.getDoc());
             sentenciaP.setString(2, persona.getNom());
             sentenciaP.setString(3, persona.getApe());
-            sentenciaP.setDate(4, (java.sql.Date) Date.from(persona.getFecNac().atStartOfDay(ZoneId.systemDefault()).toInstant()));
-            sentenciaP.setString(5, String.valueOf(persona.getEdad()));
+            sentenciaP.setString(4, String.valueOf(persona.getEdad()));
+            sentenciaP.setDate(5, (java.sql.Date) Date.from(persona.getFecNac().atStartOfDay(ZoneId.systemDefault()).toInstant()));
             sentenciaP.setDate(6,(java.sql.Date)Date.from(persona.getFecSeg().atZone(ZoneId.systemDefault()).toInstant()));
             sentenciaP.executeUpdate();
             sentenciaP.close();
