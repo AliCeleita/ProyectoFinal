@@ -35,17 +35,14 @@ public class Jugadores extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(102, 102, 255));
         setMinimumSize(new java.awt.Dimension(600, 400));
-        getContentPane().setLayout(null);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jTabbedPane1.setMinimumSize(new java.awt.Dimension(600, 400));
-
-        registrar1.setMinimumSize(new java.awt.Dimension(600, 400));
-        jTabbedPane1.addTab("Registro", registrar1);
+        jTabbedPane1.addTab("Registrar", registrar1);
         jTabbedPane1.addTab("Infantil", mostrar1);
         jTabbedPane1.addTab("Juvenil", juvenil1);
 
-        getContentPane().add(jTabbedPane1);
-        jTabbedPane1.setBounds(0, 0, 420, 330);
+        getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 400));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

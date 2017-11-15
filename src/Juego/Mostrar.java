@@ -33,6 +33,8 @@ public class Mostrar extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         mosReg = new javax.swing.JTable();
 
+        setMinimumSize(new java.awt.Dimension(600, 400));
+
         mosReg.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -44,6 +46,7 @@ public class Mostrar extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        mosReg.setMinimumSize(new java.awt.Dimension(600, 400));
         jScrollPane1.setViewportView(mosReg);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -52,7 +55,7 @@ public class Mostrar extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
