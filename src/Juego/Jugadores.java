@@ -5,18 +5,16 @@
  */
 package Juego;
 
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author AliCeleita
  */
-public class Principal extends javax.swing.JFrame {
+public class Jugadores extends javax.swing.JFrame {
 
     /**
-     * Creates new form Principal
+     * Creates new form Jugadores
      */
-    public Principal() {
+    public Jugadores() {
         initComponents();
     }
 
@@ -35,23 +33,19 @@ public class Principal extends javax.swing.JFrame {
         juvenil1 = new Juego.Juvenil();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(102, 102, 255));
+        setMinimumSize(new java.awt.Dimension(600, 400));
+        getContentPane().setLayout(null);
 
+        jTabbedPane1.setMinimumSize(new java.awt.Dimension(600, 400));
+
+        registrar1.setMinimumSize(new java.awt.Dimension(600, 400));
         jTabbedPane1.addTab("Registro", registrar1);
         jTabbedPane1.addTab("Infantil", mostrar1);
         jTabbedPane1.addTab("Juvenil", juvenil1);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 418, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-        );
+        getContentPane().add(jTabbedPane1);
+        jTabbedPane1.setBounds(0, 0, 420, 330);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -73,20 +67,20 @@ public class Principal extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Principal.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Jugadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Principal().setVisible(true);
+                new Jugadores().setVisible(true);
             }
         });
     }
@@ -97,15 +91,4 @@ public class Principal extends javax.swing.JFrame {
     private Juego.Mostrar mostrar1;
     private Juego.Registrar registrar1;
     // End of variables declaration//GEN-END:variables
-
-    private void configComponents(){
-        DefaultTableModel table_model_personas = new DefaultTableModel();
-        table_model_personas.addColumn("id");
-        table_model_personas.addColumn("documento");
-        table_model_personas.addColumn("nombre");
-        table_model_personas.addColumn("apellido");
-        table_model_personas.addColumn("edad");
-        table_model_personas.addColumn("Fecha nacimiento");
-        table_model_personas.addColumn("Fecha registro");
-    }
 }

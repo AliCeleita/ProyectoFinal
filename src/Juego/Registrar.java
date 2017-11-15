@@ -62,6 +62,8 @@ public int doc1, edad1;
         reg = new javax.swing.JButton();
         bAg = new javax.swing.JButton();
 
+        setMinimumSize(new java.awt.Dimension(600, 400));
+
         labDoc.setText("Documento");
 
         labNom.setText("Nombre");
@@ -128,7 +130,7 @@ public int doc1, edad1;
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(exIm, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bAg, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addContainerGap(34, Short.MAX_VALUE))
+                        .addContainerGap(195, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(reg)
                         .addGap(0, 0, Short.MAX_VALUE))))
@@ -168,7 +170,7 @@ public int doc1, edad1;
                     .addComponent(imagen, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(reg)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(221, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
