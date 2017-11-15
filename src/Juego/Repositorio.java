@@ -36,6 +36,42 @@ public class Repositorio {
 
     }
     
+    public static void crear2 (Persona persona) {
+        try {
+            String query = "INSERT INTO registrom (doc, nom, ape, edad, fecNac, fecReg) VALUES (?, ?, ?, ?, ?, ?);";
+            PreparedStatement sentenciaP = database.open().prepareStatement(query);
+            sentenciaP.setInt(1,persona.getDoc());
+            sentenciaP.setString(2, persona.getNom());
+            sentenciaP.setString(3, persona.getApe());
+            sentenciaP.setInt(4,persona.getEdad());
+            sentenciaP.setDate(5,persona.getFecNac());
+            sentenciaP.setTimestamp(6,persona.getFecSeg());
+            sentenciaP.executeUpdate();
+            database.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    
+    public static void crear3 (Persona persona) {
+        try {
+            String query = "INSERT INTO registroc (doc, nom, ape, edad, fecNac, fecReg) VALUES (?, ?, ?, ?, ?, ?);";
+            PreparedStatement sentenciaP = database.open().prepareStatement(query);
+            sentenciaP.setInt(1,persona.getDoc());
+            sentenciaP.setString(2, persona.getNom());
+            sentenciaP.setString(3, persona.getApe());
+            sentenciaP.setInt(4,persona.getEdad());
+            sentenciaP.setDate(5,persona.getFecNac());
+            sentenciaP.setTimestamp(6,persona.getFecSeg());
+            sentenciaP.executeUpdate();
+            database.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+    
     public static ArrayList<Persona> obtenerTodos() {
         ArrayList<Persona> personas = new ArrayList<Persona>();
 

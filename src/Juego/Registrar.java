@@ -195,9 +195,24 @@ public int doc1, edad1;
             switch(evt.getActionCommand())
             {
                 case "Registrar":
-                    per=Persona.crear(0, doc1, nom1, ape1, edad1, nac2,fecSeg);
-                    Repositorio.crear(per);
-                    JOptionPane.showMessageDialog(this, "Persona creada satisfactoriamente", "Bien", JOptionPane.INFORMATION_MESSAGE);
+                    
+                    if(edad1>=5&&edad1<=15){
+                        per=Persona.crear(0, doc1, nom1, ape1, edad1, nac2,fecSeg);
+                        Repositorio.crear2(per);
+                        JOptionPane.showMessageDialog(this, "Persona creada satisfactoriamente", "Bien", JOptionPane.INFORMATION_MESSAGE);
+                    }else if(edad1>=16&&edad1<=24){
+                        per=Persona.crear(0, doc1, nom1, ape1, edad1, nac2,fecSeg);
+                        Repositorio.crear(per);
+                        JOptionPane.showMessageDialog(this, "Persona creada satisfactoriamente", "Bien", JOptionPane.INFORMATION_MESSAGE);
+                    }else if(edad1>=25&&edad1<=50){
+                        per=Persona.crear(0, doc1, nom1, ape1, edad1, nac2,fecSeg);
+                        Repositorio.crear3(per);
+                        JOptionPane.showMessageDialog(this, "Persona creada satisfactoriamente", "Bien", JOptionPane.INFORMATION_MESSAGE);
+                    }else{
+                        JOptionPane.showMessageDialog(null,"Datos incorrectos, edad incorrecta");
+                    }
+                    
+                    
                 break;
                 default:
                     JOptionPane.showMessageDialog(this, "Persona no creada", "mal", JOptionPane.INFORMATION_MESSAGE);
