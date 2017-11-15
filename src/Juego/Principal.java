@@ -5,6 +5,8 @@
  */
 package Juego;
 
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author AliCeleita
@@ -30,19 +32,19 @@ public class Principal extends javax.swing.JFrame {
         jTabbedPane1 = new javax.swing.JTabbedPane();
         registrar1 = new Juego.Registrar();
         mostrar1 = new Juego.Mostrar();
+        juvenil1 = new Juego.Juvenil();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jTabbedPane1.addTab("Registro", registrar1);
-        jTabbedPane1.addTab("Jugadores", mostrar1);
+        jTabbedPane1.addTab("Infantil", mostrar1);
+        jTabbedPane1.addTab("Juvenil", juvenil1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 488, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -91,7 +93,19 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTabbedPane jTabbedPane1;
+    private Juego.Juvenil juvenil1;
     private Juego.Mostrar mostrar1;
     private Juego.Registrar registrar1;
     // End of variables declaration//GEN-END:variables
+
+    private void configComponents(){
+        DefaultTableModel table_model_personas = new DefaultTableModel();
+        table_model_personas.addColumn("id");
+        table_model_personas.addColumn("documento");
+        table_model_personas.addColumn("nombre");
+        table_model_personas.addColumn("apellido");
+        table_model_personas.addColumn("edad");
+        table_model_personas.addColumn("Fecha nacimiento");
+        table_model_personas.addColumn("Fecha registro");
+    }
 }

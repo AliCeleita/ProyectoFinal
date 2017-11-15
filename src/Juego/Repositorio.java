@@ -73,7 +73,7 @@ public class Repositorio {
     }
     
     public static ArrayList<Persona> obtenerTodos() {
-        ArrayList<Persona> personas = new ArrayList<Persona>();
+        ArrayList<Persona> personasP = new ArrayList<Persona>();
 
         try {
             String query = "SELECT * FROM registro;";
@@ -81,17 +81,63 @@ public class Repositorio {
             ResultSet resultado = sentenciaP.executeQuery();
 
             while (resultado.next()) {
-                personas.add(Persona.crear(resultado.getInt("id"), resultado.getInt("doc"), resultado.getString("nom"),resultado.getString("ape"),resultado.getInt("edad"),resultado.getDate("fecNac"),resultado.getTimestamp("fecReg")));
+                personasP.add(Persona.crear(resultado.getInt("id"), resultado.getInt("doc"), resultado.getString("nom"),resultado.getString("ape"),resultado.getInt("edad"),resultado.getDate("fecNac"),resultado.getTimestamp("fecReg")));
             }
 
             sentenciaP.close();
             database.close();
 
-            return personas;
+            return personasP;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
 
-        return personas;
+        return personasP;
+    }
+    
+    public static ArrayList<Persona> obtenerTodos2() {
+        ArrayList<Persona> personasM = new ArrayList<Persona>();
+
+        try {
+            String query = "SELECT * FROM registrom;";
+            PreparedStatement sentenciaP = database.open().prepareStatement(query);
+            ResultSet resultado = sentenciaP.executeQuery();
+
+            while (resultado.next()) {
+                personasM.add(Persona.crear2(resultado.getInt("id"), resultado.getInt("doc"), resultado.getString("nom"),resultado.getString("ape"),resultado.getInt("edad"),resultado.getDate("fecNac"),resultado.getTimestamp("fecReg")));
+            }
+
+            sentenciaP.close();
+            database.close();
+
+            return personasM;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return personasM;
+    }
+    
+    public static ArrayList<Persona> obtenerTodos3() {
+        ArrayList<Persona> personasA = new ArrayList<Persona>();
+
+        try {
+            String query = "SELECT * FROM registroc;";
+            PreparedStatement sentenciaP = database.open().prepareStatement(query);
+            ResultSet resultado = sentenciaP.executeQuery();
+
+            while (resultado.next()) {
+                personasA.add(Persona.crear3(resultado.getInt("id"), resultado.getInt("doc"), resultado.getString("nom"),resultado.getString("ape"),resultado.getInt("edad"),resultado.getDate("fecNac"),resultado.getTimestamp("fecReg")));
+            }
+
+            sentenciaP.close();
+            database.close();
+
+            return personasA;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return personasA;
     }
 }
