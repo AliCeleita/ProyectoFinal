@@ -62,6 +62,7 @@ public int doc1, edad1;
         reg = new javax.swing.JButton();
         bAg = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(153, 153, 255));
         setMinimumSize(new java.awt.Dimension(600, 400));
 
         labDoc.setText("Documento");
@@ -76,6 +77,7 @@ public int doc1, edad1;
 
         url.setText("Direccion Imagen");
 
+        exIm.setBackground(new java.awt.Color(102, 102, 255));
         exIm.setText("Examinar");
         exIm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -83,6 +85,7 @@ public int doc1, edad1;
             }
         });
 
+        reg.setBackground(new java.awt.Color(102, 102, 255));
         reg.setText("Registrar");
         reg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -90,6 +93,7 @@ public int doc1, edad1;
             }
         });
 
+        bAg.setBackground(new java.awt.Color(102, 102, 255));
         bAg.setText("Agregar");
         bAg.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
