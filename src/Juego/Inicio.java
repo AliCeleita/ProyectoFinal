@@ -42,6 +42,11 @@ public class Inicio extends javax.swing.JFrame {
 
         bjugar.setBackground(new java.awt.Color(102, 102, 255));
         bjugar.setText("Jugar");
+        bjugar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bjugarActionPerformed(evt);
+            }
+        });
         getContentPane().add(bjugar);
         bjugar.setBounds(210, 150, 160, 30);
 
@@ -78,6 +83,12 @@ public class Inicio extends javax.swing.JFrame {
         Jugadores asd=new Jugadores();
         asd.setVisible(true);
     }//GEN-LAST:event_usuariosActionPerformed
+
+    private void bjugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjugarActionPerformed
+        this.setVisible(false);
+        Juego qwe = new Juego();
+        qwe.setVisible(true);
+    }//GEN-LAST:event_bjugarActionPerformed
 
     /**
      * @param args the command line arguments
