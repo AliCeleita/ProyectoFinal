@@ -33,9 +33,9 @@ public int doc1, edad1;
     public LocalDate nac1;
     public Date nac2;
     private Persona per;
-    private DefaultTableModel table_model_personas;
-    private Date fecha1;
-    public Timestamp fecha2;
+    private DefaultTableModel table_model_personas,table_model_juvenil,table_model_adultos;
+    private Date fecha1,fecha3,fecha5;
+    public Timestamp fecha2,fecha4,fecha6;
     
     public Registrar() {
         initComponents();
@@ -61,6 +61,47 @@ public int doc1, edad1;
             table_model_personas.addRow(data);
         }
     }
+    
+    public void setTableModel2(DefaultTableModel table_model_juvenil){
+        this.table_model_juvenil = table_model_juvenil;
+    }
+    
+    public void refreshTableModel2()
+    {
+        ArrayList<Persona> lista_juvenil = Repositorio.obtenerTodos2();
+        while (table_model_juvenil.getRowCount() > 0) {
+            table_model_juvenil.removeRow(0);
+        }
+        
+        for(Persona p : lista_juvenil)
+        {
+            fecha3=p.getFecNac();
+            fecha4=p.getFecSeg();
+            String[] data = {Integer.toString(p.getId()), Integer.toString(p.getDoc()), p.getNom(),p.getApe(),Integer.toString(p.getEdad()),fecha3.toString() , fecha4.toString()};
+            table_model_juvenil.addRow(data);
+        }
+    }
+    
+    public void setTableModel3(DefaultTableModel table_model_adultos){
+        this.table_model_adultos = table_model_adultos;
+    }
+    
+    public void refreshTableModel3()
+    {
+        ArrayList<Persona> lista_adultos = Repositorio.obtenerTodos3();
+        while (table_model_adultos.getRowCount() > 0) {
+            table_model_adultos.removeRow(0);
+        }
+        
+        for(Persona p : lista_adultos)
+        {
+            fecha5=p.getFecNac();
+            fecha6=p.getFecSeg();
+            String[] data = {Integer.toString(p.getId()), Integer.toString(p.getDoc()), p.getNom(),p.getApe(),Integer.toString(p.getEdad()),fecha5.toString() , fecha6.toString()};
+            table_model_adultos.addRow(data);
+        }
+    }
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {

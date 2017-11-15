@@ -7,7 +7,7 @@ package Juego;
 
 /**
  *
- * @author AliCeleita
+ * @author Brayan
  */
 public class Jugadores extends javax.swing.JFrame {
 
@@ -16,7 +16,6 @@ public class Jugadores extends javax.swing.JFrame {
      */
     public Jugadores() {
         initComponents();
-        this.setResizable(false);
     }
 
     /**
@@ -32,17 +31,27 @@ public class Jugadores extends javax.swing.JFrame {
         registrar1 = new Juego.Registrar();
         mostrar1 = new Juego.Mostrar();
         juvenil1 = new Juego.Juvenil();
+        adultos1 = new Juego.Adultos();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(102, 102, 255));
         setMinimumSize(new java.awt.Dimension(600, 400));
 
         jTabbedPane1.setMinimumSize(new java.awt.Dimension(600, 400));
-        jTabbedPane1.addTab("Registrar", registrar1);
+        jTabbedPane1.addTab("Registro", registrar1);
         jTabbedPane1.addTab("Infantil", mostrar1);
         jTabbedPane1.addTab("Juvenil", juvenil1);
+        jTabbedPane1.addTab("tab4", adultos1);
 
-        getContentPane().add(jTabbedPane1, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jTabbedPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -83,6 +92,7 @@ public class Jugadores extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private Juego.Adultos adultos1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private Juego.Juvenil juvenil1;
     private Juego.Mostrar mostrar1;

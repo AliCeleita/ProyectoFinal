@@ -11,10 +11,11 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Brayan
  */
-public class Juvenil extends javax.swing.JPanel {
+public class Adultos extends javax.swing.JPanel {
 
     Registrar obj1= new Registrar();
-    public Juvenil() {
+    
+    public Adultos() {
         initComponents();
         configuracion();
     }
@@ -29,13 +30,9 @@ public class Juvenil extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        Tabla_juvenil = new javax.swing.JTable();
+        Tabla_adultos = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(153, 153, 255));
-        setMinimumSize(new java.awt.Dimension(600, 400));
-
-        Tabla_juvenil.setBackground(new java.awt.Color(204, 204, 255));
-        Tabla_juvenil.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla_adultos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -46,9 +43,7 @@ public class Juvenil extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        Tabla_juvenil.setGridColor(new java.awt.Color(153, 153, 255));
-        Tabla_juvenil.setMinimumSize(new java.awt.Dimension(600, 400));
-        jScrollPane1.setViewportView(Tabla_juvenil);
+        jScrollPane1.setViewportView(Tabla_adultos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -56,17 +51,18 @@ public class Juvenil extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
     public void configuracion(){
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Documento");
@@ -75,13 +71,13 @@ public class Juvenil extends javax.swing.JPanel {
         modelo.addColumn("Edad");
         modelo.addColumn("Fecha de Nacimiento");
         modelo.addColumn("Fecha de Registro");
-        Tabla_juvenil.setModel(modelo);
-        obj1.setTableModel2(modelo);
-        obj1.refreshTableModel2();
+        Tabla_adultos.setModel(modelo);
+        obj1.setTableModel3(modelo);
+        obj1.refreshTableModel3();
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tabla_juvenil;
+    private javax.swing.JTable Tabla_adultos;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

@@ -86,7 +86,7 @@ public class Inicio extends javax.swing.JFrame {
 
     private void bjugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjugarActionPerformed
         this.setVisible(false);
-        Juego qwe = new Juego();
+        VistaJuego qwe = new VistaJuego();
         qwe.setVisible(true);
     }//GEN-LAST:event_bjugarActionPerformed
 
