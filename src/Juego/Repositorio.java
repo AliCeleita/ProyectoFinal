@@ -20,7 +20,7 @@ public class Repositorio {
     
     public static void crear (Persona persona) {
         try {
-            String query = "INSERT INTO registro (doc, nom, ape, edad, fecNac, fecReg) VALUES (?, ?, ?, ?, ?, ?);";
+            String query = "INSERT INTO registrom (doc, nom, ape, edad, fecNac, fecReg) VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement sentenciaP = database.open().prepareStatement(query);
             sentenciaP.setInt(1,persona.getDoc());
             sentenciaP.setString(2, persona.getNom());
@@ -38,7 +38,7 @@ public class Repositorio {
     
     public static void crear2 (Persona persona) {
         try {
-            String query = "INSERT INTO registrom (doc, nom, ape, edad, fecNac, fecReg) VALUES (?, ?, ?, ?, ?, ?);";
+            String query = "INSERT INTO registro (doc, nom, ape, edad, fecNac, fecReg) VALUES (?, ?, ?, ?, ?, ?);";
             PreparedStatement sentenciaP = database.open().prepareStatement(query);
             sentenciaP.setInt(1,persona.getDoc());
             sentenciaP.setString(2, persona.getNom());
@@ -76,7 +76,7 @@ public class Repositorio {
         ArrayList<Persona> personasP = new ArrayList<Persona>();
 
         try {
-            String query = "SELECT * FROM registro;";
+            String query = "SELECT * FROM registrom;";
             PreparedStatement sentenciaP = database.open().prepareStatement(query);
             ResultSet resultado = sentenciaP.executeQuery();
 
@@ -99,7 +99,7 @@ public class Repositorio {
         ArrayList<Persona> personasM = new ArrayList<Persona>();
 
         try {
-            String query = "SELECT * FROM registrom;";
+            String query = "SELECT * FROM registro;";
             PreparedStatement sentenciaP = database.open().prepareStatement(query);
             ResultSet resultado = sentenciaP.executeQuery();
 

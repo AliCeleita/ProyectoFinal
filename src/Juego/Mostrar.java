@@ -13,9 +13,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Mostrar extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Mostrar
-     */
+    Registrar obj1= new Registrar();
+    
     public Mostrar() {
         initComponents();
         configuracion();
@@ -78,6 +77,8 @@ public class Mostrar extends javax.swing.JPanel {
         modelo.addColumn("Fecha de Nacimiento");
         modelo.addColumn("Fecha de Registro");
         mosReg.setModel(modelo);
+        obj1.setTableModel(modelo);
+        obj1.refreshTableModel();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
