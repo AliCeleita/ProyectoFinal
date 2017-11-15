@@ -95,7 +95,7 @@
     <Component class="javax.swing.JLabel" name="Fondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\Users\AliCeleita\Pictures\galaxia.jpg"/>
+          <Image iconType="3" name="/imagenes/galaxia.jpg"/>
         </Property>
       </Properties>
       <Constraints>

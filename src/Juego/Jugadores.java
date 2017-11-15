@@ -16,6 +16,7 @@ public class Jugadores extends javax.swing.JFrame {
      */
     public Jugadores() {
         initComponents();
+        this.setResizable(false);
     }
 
     /**
