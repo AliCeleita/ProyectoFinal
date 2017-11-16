@@ -7,10 +7,12 @@ package Juego;
 
 /**
  *
- * @author Brayan
+ * @authores Alisson Celeita
+ * Brayan Garcia
  */
 public class Jugadores extends javax.swing.JFrame {
-
+    //En este JFrame se manejan todos los paneles que contienen la informacion de los jugadores
+    //registrados
     /**
      * Creates new form Jugadores
      */

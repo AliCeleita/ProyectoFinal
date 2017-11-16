@@ -5,6 +5,8 @@
  */
 package Juego;
 
+import Juego.Clases.Repositorio;
+import Juego.Clases.Persona;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -24,10 +26,15 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author AliCeleita
+ * @author Alisson Celeita
+ * Brayan Garcia
  */
 public class Registrar extends javax.swing.JPanel {
-public int doc1, edad1;
+    
+    /*
+        En esta clase se hace el registro de usuarios con interfaz grafica
+    */
+    public int doc1, edad1;
     public Timestamp fecSeg;
     public String nom1,ape1,dia,mes,año,fecNac;
     public LocalDate nac1;
@@ -39,15 +46,13 @@ public int doc1, edad1;
     
     public Registrar() {
         initComponents();
-        
     }
 
     public void setTableModel(DefaultTableModel table_model_personas){
         this.table_model_personas = table_model_personas;
     }
     
-    public void refreshTableModel()
-    {
+    public void refreshTableModel(){
         ArrayList<Persona> lista_personas = Repositorio.obtenerTodos();
         while (table_model_personas.getRowCount() > 0) {
             table_model_personas.removeRow(0);
@@ -246,20 +251,23 @@ public int doc1, edad1;
                 doc1=Integer.parseInt(doc.getText());
                 nom1=(String)nom.getText();
                 ape1=(String)ape.getText();
+                //Las variables siguientes se usan para obtener los datos del JCalendar
                 dia=Integer.toString(nac.getCalendar().get(Calendar.DAY_OF_MONTH));
                 mes=Integer.toString((nac.getCalendar().get(Calendar.MONTH))+1);
                 año=Integer.toString(nac.getCalendar().get(Calendar.YEAR));
                 fecNac=dia+"/"+mes+"/"+año;
                 nac1 = LocalDate.parse(fecNac, DateTimeFormatter.ofPattern("d/M/yyyy"));
                 edad1=Integer.parseInt(edad.getText());
+                //Se hacen las respectivas conversiones de datos para que sean recibidas en la base de datos
                 LocalDateTime hoy=LocalDateTime.now();
                 fecSeg=Timestamp.valueOf(hoy);
                 nac2=Date.valueOf(nac1);
             }catch(NumberFormatException asd){
                 JOptionPane.showMessageDialog(null,"Datos incorrectos");
             }
-            switch(evt.getActionCommand())
-            {
+            //Se configura en que tabla se va a realizar el registro, se dividen las categorias
+            
+            switch(evt.getActionCommand()){
                 case "Registrar":
                     
                     if(edad1>=5&&edad1<=15){
@@ -287,7 +295,7 @@ public int doc1, edad1;
             
         }
     }//GEN-LAST:event_regActionPerformed
-
+    //Se configuran los botones y el label para que la persona pueda ingresar la imagen que desee
     private void exImActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exImActionPerformed
         
 	JFileChooser fc = new JFileChooser( "./data" );

@@ -7,15 +7,18 @@ package Juego;
 
 /**
  *
- * @author AliCeleita
+ * @authores Alisson Celeita
+ * Brayan Garcia
  */
 public class Inicio extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Inicio
-     */
+    /*
+        JFrame principal del juego, es el menu de inicio donde la persona
+        escoge a que opcion entrar
+    */
     public Inicio() {
         initComponents();
+        //Bloquea el JFrame y asi no modifican su tamaño
         this.setResizable(false);
     }
 
@@ -31,7 +34,7 @@ public class Inicio extends javax.swing.JFrame {
         bjugar = new javax.swing.JButton();
         usuarios = new javax.swing.JButton();
         bpuntajes = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        titulo = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -65,11 +68,11 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().add(bpuntajes);
         bpuntajes.setBounds(210, 250, 160, 30);
 
-        jLabel1.setFont(new java.awt.Font("Lucida Calligraphy", 1, 48)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 102));
-        jLabel1.setText("Space Invaders");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(80, 30, 440, 60);
+        titulo.setFont(new java.awt.Font("Lucida Calligraphy", 1, 48)); // NOI18N
+        titulo.setForeground(new java.awt.Color(255, 255, 102));
+        titulo.setText("Space Invaders");
+        getContentPane().add(titulo);
+        titulo.setBounds(80, 30, 440, 60);
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/galaxia.jpg"))); // NOI18N
         getContentPane().add(Fondo);
@@ -77,7 +80,8 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Configuracion de botones, llamando los otros JFrame
     private void usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosActionPerformed
         this.setVisible(false);
         Jugadores asd=new Jugadores();
@@ -129,7 +133,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JLabel Fondo;
     private javax.swing.JButton bjugar;
     private javax.swing.JButton bpuntajes;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel titulo;
     private javax.swing.JButton usuarios;
     // End of variables declaration//GEN-END:variables
 }

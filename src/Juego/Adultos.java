@@ -32,10 +32,12 @@ public class Adultos extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_adultos = new javax.swing.JTable();
 
+        setBackground(new java.awt.Color(153, 153, 255));
         setForeground(new java.awt.Color(51, 204, 255));
         setToolTipText("");
         setPreferredSize(new java.awt.Dimension(600, 400));
 
+        Tabla_adultos.setBackground(new java.awt.Color(153, 153, 255));
         Tabla_adultos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
