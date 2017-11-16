@@ -40,7 +40,7 @@ public class Jugadores extends javax.swing.JFrame {
         jTabbedPane1.addTab("Registro", registrar1);
         jTabbedPane1.addTab("Infantil", mostrar1);
         jTabbedPane1.addTab("Juvenil", juvenil1);
-        jTabbedPane1.addTab("tab4", adultos1);
+        jTabbedPane1.addTab("Adultos", adultos1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

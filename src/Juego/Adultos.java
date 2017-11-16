@@ -32,6 +32,10 @@ public class Adultos extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         Tabla_adultos = new javax.swing.JTable();
 
+        setForeground(new java.awt.Color(51, 204, 255));
+        setToolTipText("");
+        setPreferredSize(new java.awt.Dimension(600, 400));
+
         Tabla_adultos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -43,6 +47,7 @@ public class Adultos extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        Tabla_adultos.setMinimumSize(new java.awt.Dimension(500, 400));
         jScrollPane1.setViewportView(Tabla_adultos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -51,26 +56,28 @@ public class Adultos extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     public void configuracion(){
         DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id");
         modelo.addColumn("Documento");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
         modelo.addColumn("Edad");
         modelo.addColumn("Fecha de Nacimiento");
         modelo.addColumn("Fecha de Registro");
+        
         Tabla_adultos.setModel(modelo);
         obj1.setTableModel3(modelo);
         obj1.refreshTableModel3();

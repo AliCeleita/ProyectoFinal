@@ -239,7 +239,7 @@ public int doc1, edad1;
     }// </editor-fold>//GEN-END:initComponents
 
     private void regActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regActionPerformed
-        if(ape.getText().isEmpty()||doc.getText().isEmpty()||edad.getText().isEmpty()||nom.getText().isEmpty()||url.getText().isEmpty()||nac.getDate()==null||imagen.getText().isEmpty()){
+        if(ape.getText().isEmpty()||doc.getText().isEmpty()||edad.getText().isEmpty()||nom.getText().isEmpty()||url.getText().isEmpty()||nac.getDate()==null){
             JOptionPane.showMessageDialog(null,"Digite todos los datos");
         }else{
             try{

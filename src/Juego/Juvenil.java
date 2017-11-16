@@ -69,12 +69,14 @@ public class Juvenil extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
     public void configuracion(){
         DefaultTableModel modelo = new DefaultTableModel();
+        modelo.addColumn("Id");
         modelo.addColumn("Documento");
         modelo.addColumn("Nombre");
         modelo.addColumn("Apellido");
         modelo.addColumn("Edad");
         modelo.addColumn("Fecha de Nacimiento");
         modelo.addColumn("Fecha de Registro");
+        
         Tabla_juvenil.setModel(modelo);
         obj1.setTableModel2(modelo);
         obj1.refreshTableModel2();

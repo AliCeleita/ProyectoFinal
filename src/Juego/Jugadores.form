@@ -75,8 +75,8 @@
         <Component class="Juego.Adultos" name="adultos1">
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-              <JTabbedPaneConstraints tabName="tab4">
-                <Property name="tabTitle" type="java.lang.String" value="tab4"/>
+              <JTabbedPaneConstraints tabName="Adultos">
+                <Property name="tabTitle" type="java.lang.String" value="Adultos"/>
               </JTabbedPaneConstraints>
             </Constraint>
           </Constraints>

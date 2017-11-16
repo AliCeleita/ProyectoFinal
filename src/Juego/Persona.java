@@ -14,13 +14,7 @@ import java.sql.Timestamp;
  */
 public class Persona {
 
-    static Persona crear2(int aInt, int aInt0, String string, String string0, int aInt1, Date date, Timestamp timestamp) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    static Persona crear3(int aInt, int aInt0, String string, String string0, int aInt1, Date date, Timestamp timestamp) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
     private int doc,id;
     private int edad;
     private Timestamp fecSeg;
@@ -94,6 +88,13 @@ public Persona(int id,int doc,String nom,String ape,int edad,Date fecNac,Timesta
         this.id = id;
     }
     public static Persona crear(int id,int doc,String nom,String ape,int edad,Date fecNac,Timestamp fecSeg) {
+        return new Persona(id,doc,nom,ape,edad,fecNac,fecSeg);
+    }
+    static Persona crear2(int id,int doc,String nom,String ape,int edad,Date fecNac,Timestamp fecSeg) {
+        return new Persona(id,doc,nom,ape,edad,fecNac,fecSeg);
+    }
+
+    static Persona crear3(int id,int doc,String nom,String ape,int edad,Date fecNac,Timestamp fecSeg) {
         return new Persona(id,doc,nom,ape,edad,fecNac,fecSeg);
     }
 }
