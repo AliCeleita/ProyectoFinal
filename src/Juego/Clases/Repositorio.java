@@ -34,7 +34,10 @@ public class Repositorio {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        /*
+        Se ingresaran las personas INFANTILES a una tabla en PhpMyAdmin
+        ingresaran por un registro que se les realizara al inicio del juego
+        */
     }
     
     public static void crear2 (Persona persona) {
@@ -52,7 +55,10 @@ public class Repositorio {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        /*
+        Se ingresaran las personas JUVENILES a una tabla en PhpMyAdmin
+        ingresaran por un registro que se les realizara al inicio del juego
+        */
     }
     
     public static void crear3 (Persona persona) {
@@ -70,7 +76,10 @@ public class Repositorio {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
+        /*
+        Se ingresaran las personas ADULTAS a una tabla en PhpMyAdmin
+        ingresaran por un registro que se les realizara al inicio del juego
+        */
     }
     
     public static ArrayList<Persona> obtenerTodos() {
@@ -94,6 +103,11 @@ public class Repositorio {
         }
 
         return personasP;
+        
+        /*
+        Se creara un ArrayList para obtener a las personas INFANTILES que se registraran en una de las
+        tablas que se crearon en una base de datos en PhpMyAdmin
+        */
     }
     
     public static ArrayList<Persona> obtenerTodos2() {
@@ -117,6 +131,11 @@ public class Repositorio {
         }
 
         return personasM;
+        
+        /*
+        Se creara un ArrayList para obtener a las personas JUVENILES que se registraran en una de las
+        tablas que se crearon en una base de datos en PhpMyAdmin
+        */
     }
     
     public static ArrayList<Persona> obtenerTodos3() {
@@ -140,5 +159,9 @@ public class Repositorio {
         }
 
         return personasA;
+        /*
+        Se creara un ArrayList para obtener a las personas ADULTAS que se registraran en una de las
+        tablas que se crearon en una base de datos en PhpMyAdmin
+        */
     }
 }

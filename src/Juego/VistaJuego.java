@@ -29,11 +29,14 @@ public class VistaJuego extends javax.swing.JFrame {
     public void paint(Graphics g){
         g.setColor(getBackground());
         g.fillRect(0,0,getWidth(),getHeight());
-        g.fillRect(x+1,380,30,30);
+        g.fillRect(x+1,380,30,10);
         g.setColor(Color.blue);
         g.fillRect(x,380,30,30);
         g.setColor(Color.ORANGE);
         g.fillOval(x,380,30,30);
+        /*
+        Figuras de la nave
+        */
     }
     
     public void inicio(){
@@ -64,11 +67,11 @@ public class VistaJuego extends javax.swing.JFrame {
             
             if(hilo1.isAlive()==true){
                 Thread.sleep(10);
-                x+=5;
+                x+=25;
                 repaint();
             }else if(hilo2.isAlive()==true){
                 Thread.sleep(10);
-                x-=5;
+                x-=25;
                 repaint();
             }
                 
@@ -77,6 +80,9 @@ public class VistaJuego extends javax.swing.JFrame {
         } catch (InterruptedException ex) {
                 System.out.println("error");
         }
+        /*
+        Logica con la que se movera la nave
+        */
         
     }
     
@@ -111,31 +117,30 @@ public class VistaJuego extends javax.swing.JFrame {
         int tecla = evt.getKeyCode(); 
         switch(tecla){
             case KeyEvent.VK_RIGHT:   
-                hilo1.start();
+                //inicio();
+                if(hilo2!=null){
+                    hilo2=new Thread();
+                    hilo2.start();
+                }else{
+                    hilo2.start();
+                }
                 requestFocusInWindow();
-                break;
+            break;
             case KeyEvent.VK_LEFT:   
-                hilo2.start();
+                if(hilo1!=null){
+                    hilo1=new Thread();
+                    hilo1.start();
+                }else{
+                    hilo1.start();
+                }
                 requestFocusInWindow();
                 break;
-            
         }
+        /*
+        Movimiento de la nave por medio del teclado
+        */
     }//GEN-LAST:event_formKeyPressed
-
-    public void teclado(int tecla, boolean presionada){
-        switch(tecla){
-            case KeyEvent.VK_RIGHT:   
-                hilo1.start();
-                requestFocusInWindow();
-                break;
-            case KeyEvent.VK_LEFT:   
-                hilo2.start();
-                requestFocusInWindow();
-                break;
-            
-        }
-    }
-    
+ 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

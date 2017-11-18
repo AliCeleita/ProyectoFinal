@@ -83,6 +83,10 @@ public class Adultos extends javax.swing.JPanel {
         Tabla_adultos.setModel(modelo);
         obj1.setTableModel3(modelo);
         obj1.refreshTableModel3();
+        
+        /*forma en la que mostrara la tabla de las personas adultas
+        al juego de Space BrAli*/
+        
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
