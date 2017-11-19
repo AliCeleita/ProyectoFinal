@@ -65,6 +65,11 @@ public class Registrar extends javax.swing.JPanel {
             String[] data = {Integer.toString(p.getId()), Integer.toString(p.getDoc()), p.getNom(),p.getApe(),Integer.toString(p.getEdad()),fecha1.toString() , fecha2.toString()};
             table_model_personas.addRow(data);
         }
+        
+        /*
+        Metodo creado para refrescar la tabla que refrescara a las personas INFANTILES
+        en un tabla creada para esta categoria
+        */
     }
     
     public void setTableModel2(DefaultTableModel table_model_juvenil){
@@ -85,6 +90,11 @@ public class Registrar extends javax.swing.JPanel {
             String[] data = {Integer.toString(p.getId()), Integer.toString(p.getDoc()), p.getNom(),p.getApe(),Integer.toString(p.getEdad()),fecha3.toString() , fecha4.toString()};
             table_model_juvenil.addRow(data);
         }
+        
+        /*
+        Metodo creado para refrescar la tabla que refrescara a las personas JUVENILES
+        en un tabla creada para esta categoria
+        */
     }
     
     public void setTableModel3(DefaultTableModel table_model_adultos){
@@ -105,6 +115,10 @@ public class Registrar extends javax.swing.JPanel {
             String[] data = {Integer.toString(p.getId()), Integer.toString(p.getDoc()), p.getNom(),p.getApe(),Integer.toString(p.getEdad()),fecha5.toString() , fecha6.toString()};
             table_model_adultos.addRow(data);
         }
+        /*
+        Metodo creado para refrescar la tabla que refrescara a las personas ADULTAS
+        en un tabla creada para esta categoria
+        */
     }
     
     @SuppressWarnings("unchecked")
@@ -285,8 +299,16 @@ public class Registrar extends javax.swing.JPanel {
                     }else{
                         JOptionPane.showMessageDialog(null,"Datos incorrectos, edad incorrecta");
                     }
+                    doc.setText("");
+                    nom.setText("");
+                    ape.setText("");
+                    edad.setText("");
+                    url.setText("");
                     
-                    
+                    /*
+                    Segun la edad que tenga se enviaran a una tabla especifica para
+                    cada categoria 
+                    */
                 break;
                 default:
                     JOptionPane.showMessageDialog(this, "Persona no creada", "mal", JOptionPane.INFORMATION_MESSAGE);
@@ -325,6 +347,8 @@ public class Registrar extends javax.swing.JPanel {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+            
+            //forma de ingresar o asignar una imagen en cada registro
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

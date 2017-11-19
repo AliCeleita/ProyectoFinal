@@ -81,6 +81,9 @@ public class Mostrar extends javax.swing.JPanel {
         mosReg.setModel(modelo);
         obj1.setTableModel(modelo);
         obj1.refreshTableModel();
+        
+        /*forma en la que mostrara la tabla de las personas infantiless
+        al juego de Space BrAli*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

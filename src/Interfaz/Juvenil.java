@@ -80,6 +80,9 @@ public class Juvenil extends javax.swing.JPanel {
         Tabla_juvenil.setModel(modelo);
         obj1.setTableModel2(modelo);
         obj1.refreshTableModel2();
+        
+        /*forma en la que mostrara la tabla de las personas juveniles
+        al juego de Space BrAli*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
