@@ -8,17 +8,20 @@ package Interfaz;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 /**
  *
  * @author Brayan
  */
-public class VistaJuego extends javax.swing.JFrame {
+public class VistaJuego extends javax.swing.JFrame implements KeyListener{
 
-    int x=240;
+    int x=300;
     Thread hilo1;
     Thread hilo2;
+    
     
     public VistaJuego() {
         initComponents();
@@ -26,7 +29,7 @@ public class VistaJuego extends javax.swing.JFrame {
         hilo2=new Thread();
     }
     
-    public void paint(Graphics g){
+    /*public void paint(Graphics g){
         g.setColor(getBackground());
         g.fillRect(0,0,getWidth(),getHeight());
         g.fillRect(x+1,380,30,30);
@@ -34,7 +37,7 @@ public class VistaJuego extends javax.swing.JFrame {
         g.fillRect(x,380,30,30);
         g.setColor(Color.ORANGE);
         g.fillOval(x,380,30,30);
-    }
+    }*/
     
     public void inicio(){
         
@@ -84,6 +87,8 @@ public class VistaJuego extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        nave = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -93,35 +98,33 @@ public class VistaJuego extends javax.swing.JFrame {
             }
         });
 
+        nave.setBackground(new java.awt.Color(0, 0, 0));
+        nave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/navee.png"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(255, 255, 255)
+                .addComponent(nave)
+                .addContainerGap(295, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(330, Short.MAX_VALUE)
+                .addComponent(nave)
+                .addGap(20, 20, 20))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        int tecla = evt.getKeyCode(); 
-        switch(tecla){
-            case KeyEvent.VK_RIGHT:   
-                hilo1.start();
-                requestFocusInWindow();
-                break;
-            case KeyEvent.VK_LEFT:   
-                hilo2.start();
-                requestFocusInWindow();
-                break;
-            
-        }
+        
     }//GEN-LAST:event_formKeyPressed
-<<<<<<< HEAD:src/Juego/VistaJuego.java
+
  
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -153,9 +156,9 @@ public class VistaJuego extends javax.swing.JFrame {
                 new VistaJuego().setVisible(true);
             }
         });
-=======
 
-    public void teclado(int tecla, boolean presionada){
+
+    /*public void teclado(int tecla, boolean presionada){
         switch(tecla){
             case KeyEvent.VK_RIGHT:   
                 hilo1.start();
@@ -167,9 +170,51 @@ public class VistaJuego extends javax.swing.JFrame {
                 break;
             
         }
->>>>>>> master:src/Interfaz/VistaJuego.java
-    }
+
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel nave;
     // End of variables declaration//GEN-END:variables
-}
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        
+        nave.setBounds(x,380,200,15);
+        
+        int tecla = e.getKeyCode(); 
+        switch(tecla){
+            case KeyEvent.VK_RIGHT:   
+                if(hilo1!=null){
+                    hilo1=new Thread();
+                    hilo1.start();
+                }else{
+                    hilo1.start();
+                }
+                requestFocusInWindow();
+                break;
+            case KeyEvent.VK_LEFT:   
+                if(hilo2!=null){
+                    hilo2=new Thread();
+                    hilo2.start();
+                }else{
+                    hilo2.start();
+                }
+                requestFocusInWindow();
+                break;
+            
+        }
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+/*}*/}
+
+    
