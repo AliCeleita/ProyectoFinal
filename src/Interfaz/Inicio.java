@@ -12,6 +12,7 @@ import java.applet.AudioClip;
  */
 public class Inicio extends javax.swing.JFrame {
     public static AudioClip sonido;
+    public VistaJuego vis;
     /*
         JFrame principal del juego, es el menu de inicio donde la persona
         escoge a que opcion entrar
@@ -107,7 +108,6 @@ public class Inicio extends javax.swing.JFrame {
         VistaJuego qwe = new VistaJuego();
         qwe.setVisible(true);
         requestFocusInWindow();
-        
         /*
         Se agrega el audio que estara al inicio del juego y al presionar 
         un boton, se cambiara de JFrame

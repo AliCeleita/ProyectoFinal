@@ -21,6 +21,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     int x,y,xd;
     Thread hilo1;
     AudioClip disp;
+    int dir=1;
     
     public VistaJuego() {
         getContentPane().setBackground(new java.awt.Color(0,0,0));
@@ -310,12 +311,13 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     }// </editor-fold>//GEN-END:initComponents
     
     public void paint(Graphics g){
+        moviLin1();
         super.paint(g);
         g.setColor(Color.white);
         g.fillRect(xd,y,2,10);
-        movimientoAlien();
+        
         /*
-        Se manejara el color de JFrame y se añade el distaro de la nave
+        Se manejara el color de JFrame y se añade el disparo de la nave
         */
     }
     
@@ -422,25 +424,29 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         */
     }
     
-    public void movimientoAlien(){
-        int x1=250,i;
+    public void moviLin1(){
         try {
-            if(mar1.getX()>50){
-                while(mar1.getX()>50){
-                    Thread.sleep(50);
-                    mar1.setLocation(mar1.getX()-1, mar1.getY());
-                    mar2.setLocation(mar2.getX()-1, mar2.getY());
-                    mar3.setLocation(mar3.getX()-1, mar3.getY());
-                }
-            }else if(mar3.getX()<550){
-                while(mar3.getX()<550){
-                    Thread.sleep(50);
-                    mar1.setLocation(mar1.getX()+1, mar1.getY());
-                    mar2.setLocation(mar2.getX()+1, mar2.getY());
-                    mar3.setLocation(mar3.getX()+1, mar3.getY());
+            if(dir==1&&mar1.getX()>0){
+                Thread.sleep(50);
+                mar1.setLocation(mar1.getX()-2, mar1.getY());
+                mar2.setLocation(mar2.getX()-2, mar2.getY());
+                mar3.setLocation(mar3.getX()-2, mar3.getY());
+                
+                if(mar1.getX()==-1){
+                    dir=2;
                 }
             }
-            
+            if(dir==2&&mar3.getX()<600){
+                System.out.println("Si entra");
+                Thread.sleep(50);
+                mar1.setLocation(mar1.getX()+2, mar1.getY());
+                mar2.setLocation(mar2.getX()+2, mar2.getY());
+                mar3.setLocation(mar3.getX()+2, mar3.getY());
+                if(mar3.getX()==601){
+                    dir=1;
+                    
+                }
+            }
         } catch (InterruptedException ex) {
             Logger.getLogger(VistaJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
