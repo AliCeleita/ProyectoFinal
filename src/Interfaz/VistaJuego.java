@@ -5,22 +5,27 @@
  */
 package Interfaz;
 
-
-
 import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
  *
  * @author Brayan
  */
-public class VistaJuego extends javax.swing.JFrame {
-    int x=300;
+public class VistaJuego extends javax.swing.JFrame implements Runnable{
+    int x,y,xd;
+    Thread hilo1;
     
     public VistaJuego() {
+        getContentPane().setBackground(new java.awt.Color(0,0,0));
         initComponents();
         this.setResizable(false);
+        x=nave.getX();
+        hilo1=new Thread(this);
     }
     
     @SuppressWarnings("unchecked")
@@ -28,7 +33,6 @@ public class VistaJuego extends javax.swing.JFrame {
     private void initComponents() {
 
         nave = new javax.swing.JLabel();
-        fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
@@ -38,24 +42,51 @@ public class VistaJuego extends javax.swing.JFrame {
                 formKeyPressed(evt);
             }
         });
-        getContentPane().setLayout(null);
 
         nave.setBackground(new java.awt.Color(0, 0, 0));
         nave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/navee.png"))); // NOI18N
-        getContentPane().add(nave);
-        nave.setBounds(280, 330, 50, 48);
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/fondo2.jpg"))); // NOI18N
-        getContentPane().add(fondo);
-        fondo.setBounds(0, 0, 600, 410);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(278, Short.MAX_VALUE)
+                .addComponent(nave)
+                .addGap(272, 272, 272))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 352, Short.MAX_VALUE)
+                .addComponent(nave, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    public void paint(Graphics g){
+        setBackground(Color.BLACK);
+        g.setColor(getBackground());
+        g.fillRect(0,0,getWidth(),getHeight()-50);
+        g.setColor(Color.white);
+        g.fillRect(xd,y,2,10);
+    }
+    
+    public void inicio(){
+        if(hilo1!=null){
+            hilo1=new Thread(this);
+            hilo1.start();
+        }else{
+            hilo1=new Thread(this);
+            hilo1.start();
+        }
+    }
+    
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         switch(evt.getKeyCode()){
             case KeyEvent.VK_RIGHT:
-                if(x>550){
+                if(x>555){
                     x=550;
                 }else{
                     x+=5;
@@ -73,13 +104,31 @@ public class VistaJuego extends javax.swing.JFrame {
                 }
                 requestFocusInWindow();
             break;
+            case KeyEvent.VK_UP:
+                xd=x+25;
+                y=nave.getY();
+                inicio();
+                requestFocusInWindow();
+            break;
         }
     }//GEN-LAST:event_formKeyPressed
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel fondo;
     private javax.swing.JLabel nave;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void run() {
+        try {
+            while(y>0){
+                Thread.sleep(10);
+                y-=2;
+                repaint();
+            }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(VistaJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
 }
