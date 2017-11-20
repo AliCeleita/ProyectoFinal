@@ -314,7 +314,7 @@ public class Registrar extends javax.swing.JPanel {
                     JOptionPane.showMessageDialog(this, "Persona no creada", "mal", JOptionPane.INFORMATION_MESSAGE);
             }
             
-            
+            requestFocusInWindow();
         }
     }//GEN-LAST:event_regActionPerformed
     //Se configuran los botones y el label para que la persona pueda ingresar la imagen que desee
@@ -329,7 +329,7 @@ public class Registrar extends javax.swing.JPanel {
 	    String imagen = fc.getSelectedFile( ).getAbsolutePath( );
 	    url.setText( imagen);
         }
-	 	
+	requestFocusInWindow();	
     }//GEN-LAST:event_exImActionPerformed
 
     private void bAgActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bAgActionPerformed
@@ -347,7 +347,7 @@ public class Registrar extends javax.swing.JPanel {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            
+        requestFocusInWindow();    
             //forma de ingresar o asignar una imagen en cada registro
     }
 

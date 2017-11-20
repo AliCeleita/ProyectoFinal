@@ -89,6 +89,7 @@ public class Inicio extends javax.swing.JFrame {
         this.dispose();
         Jugadores asd=new Jugadores();
         asd.setVisible(true);
+        requestFocusInWindow();
     }//GEN-LAST:event_usuariosActionPerformed
 
     private void bjugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjugarActionPerformed
@@ -98,6 +99,7 @@ public class Inicio extends javax.swing.JFrame {
         this.dispose();
         VistaJuego qwe = new VistaJuego();
         qwe.setVisible(true);
+        requestFocusInWindow();
     }//GEN-LAST:event_bjugarActionPerformed
 
     /**
