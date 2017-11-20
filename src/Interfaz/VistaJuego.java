@@ -22,6 +22,10 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     Thread hilo1;
     AudioClip disp;
     int dir=1;
+    int dir2=2;
+    int dir3=1;
+    int dir4=2;
+    int dir5=1;
     
     public VistaJuego() {
         getContentPane().setBackground(new java.awt.Color(0,0,0));
@@ -312,6 +316,10 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     
     public void paint(Graphics g){
         moviLin1();
+        moviLin2();
+        moviLin3();
+        moviLin4();
+        moviLin5();
         super.paint(g);
         g.setColor(Color.white);
         g.fillRect(xd,y,2,10);
@@ -437,7 +445,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 }
             }
             if(dir==2&&mar3.getX()<600){
-                System.out.println("Si entra");
+                
                 Thread.sleep(50);
                 mar1.setLocation(mar1.getX()+2, mar1.getY());
                 mar2.setLocation(mar2.getX()+2, mar2.getY());
@@ -452,5 +460,165 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         }
         
     }
-
+    
+    public void moviLin2(){
+        try {
+            if(dir2==2&&mar8.getX()<600){
+                Thread.sleep(50);
+                mar4.setLocation(mar4.getX()+2, mar4.getY());
+                mar5.setLocation(mar5.getX()+2, mar5.getY());
+                mar6.setLocation(mar6.getX()+2, mar6.getY());
+                mar7.setLocation(mar7.getX()+2, mar7.getY());
+                mar8.setLocation(mar8.getX()+2, mar8.getY());
+                
+                if(mar8.getX()==600){
+                    dir2=1;
+                    System.out.println("Si entraaaaa");
+                }
+            }
+            if(dir2==1&&mar4.getX()>0){
+                System.out.println("Si entra");
+                Thread.sleep(50);
+                mar4.setLocation(mar4.getX()-2, mar4.getY());
+                mar5.setLocation(mar5.getX()-2, mar5.getY());
+                mar6.setLocation(mar6.getX()-2, mar6.getY());
+                mar7.setLocation(mar7.getX()-2, mar7.getY());
+                mar8.setLocation(mar8.getX()-2, mar8.getY());
+                if(mar4.getX()==0){
+                    dir2=2;
+                    
+                }
+            }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(VistaJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void moviLin3(){
+        try {
+            if(dir3==1&&ali1.getX()>0){
+                Thread.sleep(50);
+                ali1.setLocation(ali1.getX()-2, ali1.getY());
+                ali2.setLocation(ali2.getX()-2, ali2.getY());
+                ali3.setLocation(ali3.getX()-2, ali3.getY());
+                ali4.setLocation(ali4.getX()-2, ali4.getY());
+                ali5.setLocation(ali5.getX()-2, ali5.getY());
+                ali6.setLocation(ali6.getX()-2, ali6.getY());
+                ali7.setLocation(ali7.getX()-2, ali7.getY());
+                
+                if(ali1.getX()==-1){
+                    dir3=2;
+                }
+            }
+            if(dir3==2&&ali7.getX()<600){
+                
+                Thread.sleep(50);
+                ali1.setLocation(ali1.getX()+2, ali1.getY());
+                ali2.setLocation(ali2.getX()+2, ali2.getY());
+                ali3.setLocation(ali3.getX()+2, ali3.getY());
+                ali4.setLocation(ali4.getX()+2, ali4.getY());
+                ali5.setLocation(ali5.getX()+2, ali5.getY());
+                ali6.setLocation(ali6.getX()+2, ali6.getY());
+                ali7.setLocation(ali7.getX()+2, ali7.getY());
+                
+                if(ali7.getX()==601){
+                    dir3=1;
+                    
+                }
+            }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(VistaJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void moviLin4(){
+        try {
+            if(dir4==2&&ali16.getX()<600){
+                Thread.sleep(50);
+                ali8.setLocation(ali8.getX()+2, ali8.getY());
+                ali9.setLocation(ali9.getX()+2, ali9.getY());
+                ali10.setLocation(ali10.getX()+2, ali10.getY());
+                ali11.setLocation(ali11.getX()+2, ali11.getY());
+                ali12.setLocation(ali12.getX()+2, ali12.getY());
+                ali13.setLocation(ali13.getX()+2, ali13.getY());
+                ali14.setLocation(ali14.getX()+2, ali14.getY());
+                ali15.setLocation(ali15.getX()+2, ali15.getY());
+                ali16.setLocation(ali16.getX()+2, ali16.getY());
+                
+                if(ali16.getX()==600){
+                    dir4=1;
+                    System.out.println("Si entraaaaa");
+                }
+            }
+            if(dir4==1&&ali8.getX()>0){
+                System.out.println("Si entra");
+                Thread.sleep(50);
+                ali8.setLocation(ali8.getX()-2, ali8.getY());
+                ali9.setLocation(ali9.getX()-2, ali9.getY());
+                ali10.setLocation(ali10.getX()-2, ali10.getY());
+                ali11.setLocation(ali11.getX()-2, ali11.getY());
+                ali12.setLocation(ali12.getX()-2, ali12.getY());
+                ali13.setLocation(ali13.getX()-2, ali13.getY());
+                ali14.setLocation(ali14.getX()-2, ali14.getY());
+                ali15.setLocation(ali15.getX()-2, ali15.getY());
+                ali16.setLocation(ali16.getX()-2, ali16.getY());
+                if(ali8.getX()==0){
+                    dir4=2;
+                    
+                }
+            }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(VistaJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
+    public void moviLin5(){
+        try {
+            if(dir5==1&&alien1.getX()>0){
+                Thread.sleep(50);
+                alien1.setLocation(alien1.getX()-2, alien1.getY());
+                alien2.setLocation(alien2.getX()-2, alien2.getY());
+                alien3.setLocation(alien3.getX()-2, alien3.getY());
+                alien4.setLocation(alien4.getX()-2, alien4.getY());
+                alien5.setLocation(alien5.getX()-2, alien5.getY());
+                alien6.setLocation(alien6.getX()-2, alien6.getY());
+                alien7.setLocation(alien7.getX()-2, alien7.getY());
+                alien8.setLocation(alien8.getX()-2, alien8.getY());
+                alien9.setLocation(alien9.getX()-2, alien9.getY());
+                alien10.setLocation(alien10.getX()-2, alien10.getY());
+                alien11.setLocation(alien11.getX()-2, alien11.getY());
+                
+                if(alien1.getX()==-1){
+                    dir5=2;
+                }
+            }
+            if(dir5==2&&alien11.getX()<600){
+                
+                Thread.sleep(50);
+                alien1.setLocation(alien1.getX()+2, alien1.getY());
+                alien2.setLocation(alien2.getX()+2, alien2.getY());
+                alien3.setLocation(alien3.getX()+2, alien3.getY());
+                alien4.setLocation(alien4.getX()+2, alien4.getY());
+                alien5.setLocation(alien5.getX()+2, alien5.getY());
+                alien6.setLocation(alien6.getX()+2, alien6.getY());
+                alien7.setLocation(alien7.getX()+2, alien7.getY());
+                alien8.setLocation(alien8.getX()+2, alien8.getY());
+                alien9.setLocation(alien9.getX()+2, alien9.getY());
+                alien10.setLocation(alien10.getX()+2, alien10.getY());
+                alien11.setLocation(alien11.getX()+2, alien11.getY());
+                
+                if(alien11.getX()==601){
+                    dir5=1;
+                    
+                }
+            }
+        } catch (InterruptedException ex) {
+            Logger.getLogger(VistaJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+    
 }
