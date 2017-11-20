@@ -284,6 +284,14 @@ public class Registrar extends javax.swing.JPanel {
             switch(evt.getActionCommand()){
                 case "Registrar":
                     
+                    int diaa, mees, anoo;
+                    diaa=Integer.parseInt(dia);
+                    mees=Integer.parseInt(mes);
+                    anoo=Integer.parseInt(año);
+                    
+                    ValidarNumero(edad1);
+                    ValidarFecha(diaa, mees, anoo);
+                    
                     if(edad1>=5&&edad1<=15){
                         per=Persona.crear(0, doc1, nom1, ape1, edad1, nac2,fecSeg);
                         Repositorio.crear(per);
@@ -351,6 +359,36 @@ public class Registrar extends javax.swing.JPanel {
             //forma de ingresar o asignar una imagen en cada registro
     }
 
+    public boolean ValidarNumero(int edad){
+        if(edad<=0){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    
+    public boolean ValidarFecha(int dia, int mes, int ano){
+        int diaa=19,mees=11,anoo=2017;
+        if(ano<=anoo){
+            if(ano==anoo){
+                if(mes<=mees){
+                    if(mes==mees){
+                        if(dia<=diaa){
+                            return true;
+                        }else{
+                            return false;
+                        }
+                    }
+                }else{
+                    return false;
+                }
+            }
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ape;
     private javax.swing.JButton bAg;
