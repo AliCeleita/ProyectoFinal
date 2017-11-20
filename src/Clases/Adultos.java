@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package Clases;
 
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author AliCeleita
+ * @author Brayan
  */
-public class Mostrar extends javax.swing.JPanel {
+public class Adultos extends javax.swing.JPanel {
 
     Registrar obj1= new Registrar();
     
-    public Mostrar() {
+    public Adultos() {
         initComponents();
         configuracion();
     }
@@ -30,13 +30,15 @@ public class Mostrar extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        mosReg = new javax.swing.JTable();
+        Tabla_adultos = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(153, 153, 255));
-        setMinimumSize(new java.awt.Dimension(600, 400));
+        setForeground(new java.awt.Color(51, 204, 255));
+        setToolTipText("");
+        setPreferredSize(new java.awt.Dimension(600, 400));
 
-        mosReg.setBackground(new java.awt.Color(204, 204, 255));
-        mosReg.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla_adultos.setBackground(new java.awt.Color(153, 153, 255));
+        Tabla_adultos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -47,9 +49,8 @@ public class Mostrar extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        mosReg.setGridColor(new java.awt.Color(153, 153, 255));
-        mosReg.setMinimumSize(new java.awt.Dimension(600, 400));
-        jScrollPane1.setViewportView(mosReg);
+        Tabla_adultos.setMinimumSize(new java.awt.Dimension(500, 400));
+        jScrollPane1.setViewportView(Tabla_adultos);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -57,17 +58,18 @@ public class Mostrar extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
+
     public void configuracion(){
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Id");
@@ -78,16 +80,17 @@ public class Mostrar extends javax.swing.JPanel {
         modelo.addColumn("Fecha de Nacimiento");
         modelo.addColumn("Fecha de Registro");
         
-        mosReg.setModel(modelo);
-        obj1.setTableModel(modelo);
-        obj1.refreshTableModel();
+        Tabla_adultos.setModel(modelo);
+        obj1.setTableModel3(modelo);
+        obj1.refreshTableModel3();
         
-        /*forma en la que mostrara la tabla de las personas infantiless
+        /*forma en la que mostrara la tabla de las personas adultas
         al juego de Space BrAli*/
+        
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable Tabla_adultos;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable mosReg;
     // End of variables declaration//GEN-END:variables
 }

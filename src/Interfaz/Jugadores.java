@@ -18,6 +18,8 @@ public class Jugadores extends javax.swing.JFrame {
      */
     public Jugadores() {
         initComponents();
+        this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -30,10 +32,10 @@ public class Jugadores extends javax.swing.JFrame {
     private void initComponents() {
 
         jTabbedPane1 = new javax.swing.JTabbedPane();
-        registrar1 = new Interfaz.Registrar();
-        mostrar1 = new Interfaz.Mostrar();
-        juvenil1 = new Interfaz.Juvenil();
-        adultos1 = new Interfaz.Adultos();
+        registrar1 = new Clases.Registrar();
+        mostrar1 = new Clases.Mostrar();
+        juvenil1 = new Clases.Juvenil();
+        adultos1 = new Clases.Adultos();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -64,10 +66,10 @@ public class Jugadores extends javax.swing.JFrame {
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private Interfaz.Adultos adultos1;
+    private Clases.Adultos adultos1;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private Interfaz.Juvenil juvenil1;
-    private Interfaz.Mostrar mostrar1;
-    private Interfaz.Registrar registrar1;
+    private Clases.Juvenil juvenil1;
+    private Clases.Mostrar mostrar1;
+    private Clases.Registrar registrar1;
     // End of variables declaration//GEN-END:variables
 }

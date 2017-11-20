@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package Clases;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -11,11 +11,10 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Brayan
  */
-public class Adultos extends javax.swing.JPanel {
+public class Juvenil extends javax.swing.JPanel {
 
     Registrar obj1= new Registrar();
-    
-    public Adultos() {
+    public Juvenil() {
         initComponents();
         configuracion();
     }
@@ -30,15 +29,13 @@ public class Adultos extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        Tabla_adultos = new javax.swing.JTable();
+        Tabla_juvenil = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(153, 153, 255));
-        setForeground(new java.awt.Color(51, 204, 255));
-        setToolTipText("");
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setMinimumSize(new java.awt.Dimension(600, 400));
 
-        Tabla_adultos.setBackground(new java.awt.Color(153, 153, 255));
-        Tabla_adultos.setModel(new javax.swing.table.DefaultTableModel(
+        Tabla_juvenil.setBackground(new java.awt.Color(204, 204, 255));
+        Tabla_juvenil.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -49,8 +46,9 @@ public class Adultos extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        Tabla_adultos.setMinimumSize(new java.awt.Dimension(500, 400));
-        jScrollPane1.setViewportView(Tabla_adultos);
+        Tabla_juvenil.setGridColor(new java.awt.Color(153, 153, 255));
+        Tabla_juvenil.setMinimumSize(new java.awt.Dimension(600, 400));
+        jScrollPane1.setViewportView(Tabla_juvenil);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,18 +56,17 @@ public class Adultos extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 571, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
     public void configuracion(){
         DefaultTableModel modelo = new DefaultTableModel();
         modelo.addColumn("Id");
@@ -80,17 +77,16 @@ public class Adultos extends javax.swing.JPanel {
         modelo.addColumn("Fecha de Nacimiento");
         modelo.addColumn("Fecha de Registro");
         
-        Tabla_adultos.setModel(modelo);
-        obj1.setTableModel3(modelo);
-        obj1.refreshTableModel3();
+        Tabla_juvenil.setModel(modelo);
+        obj1.setTableModel2(modelo);
+        obj1.refreshTableModel2();
         
-        /*forma en la que mostrara la tabla de las personas adultas
+        /*forma en la que mostrara la tabla de las personas juveniles
         al juego de Space BrAli*/
-        
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tabla_adultos;
+    private javax.swing.JTable Tabla_juvenil;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

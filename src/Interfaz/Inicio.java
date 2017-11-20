@@ -20,6 +20,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         //Bloquea el JFrame y asi no modifican su tamaño
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
     }
 
     /**

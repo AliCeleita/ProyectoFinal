@@ -3,18 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Interfaz;
+package Clases;
 
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author Brayan
+ * @author AliCeleita
  */
-public class Juvenil extends javax.swing.JPanel {
+public class Mostrar extends javax.swing.JPanel {
 
     Registrar obj1= new Registrar();
-    public Juvenil() {
+    
+    public Mostrar() {
         initComponents();
         configuracion();
     }
@@ -29,13 +30,13 @@ public class Juvenil extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        Tabla_juvenil = new javax.swing.JTable();
+        mosReg = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(153, 153, 255));
         setMinimumSize(new java.awt.Dimension(600, 400));
 
-        Tabla_juvenil.setBackground(new java.awt.Color(204, 204, 255));
-        Tabla_juvenil.setModel(new javax.swing.table.DefaultTableModel(
+        mosReg.setBackground(new java.awt.Color(204, 204, 255));
+        mosReg.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -46,9 +47,9 @@ public class Juvenil extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        Tabla_juvenil.setGridColor(new java.awt.Color(153, 153, 255));
-        Tabla_juvenil.setMinimumSize(new java.awt.Dimension(600, 400));
-        jScrollPane1.setViewportView(Tabla_juvenil);
+        mosReg.setGridColor(new java.awt.Color(153, 153, 255));
+        mosReg.setMinimumSize(new java.awt.Dimension(600, 400));
+        jScrollPane1.setViewportView(mosReg);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -63,7 +64,7 @@ public class Juvenil extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 378, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -77,16 +78,16 @@ public class Juvenil extends javax.swing.JPanel {
         modelo.addColumn("Fecha de Nacimiento");
         modelo.addColumn("Fecha de Registro");
         
-        Tabla_juvenil.setModel(modelo);
-        obj1.setTableModel2(modelo);
-        obj1.refreshTableModel2();
+        mosReg.setModel(modelo);
+        obj1.setTableModel(modelo);
+        obj1.refreshTableModel();
         
-        /*forma en la que mostrara la tabla de las personas juveniles
+        /*forma en la que mostrara la tabla de las personas infantiless
         al juego de Space BrAli*/
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable Tabla_juvenil;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable mosReg;
     // End of variables declaration//GEN-END:variables
 }

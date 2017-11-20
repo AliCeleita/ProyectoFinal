@@ -26,6 +26,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         getContentPane().setBackground(new java.awt.Color(0,0,0));
         initComponents();
         this.setResizable(false);
+        this.setLocationRelativeTo(null);
         x=nave.getX();
         hilo1=new Thread(this);
     }
