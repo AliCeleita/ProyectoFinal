@@ -112,15 +112,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
             break;
         }
     }//GEN-LAST:event_formKeyPressed
-
-    public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    // Variables declaration - do not modify                     
-    // End of variables declaration                   
-
-} 
+ 
 
 
     
