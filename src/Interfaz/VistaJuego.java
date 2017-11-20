@@ -5,6 +5,7 @@
  */
 package Interfaz;
 
+import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.event.KeyEvent;
@@ -19,6 +20,7 @@ import java.util.logging.Logger;
 public class VistaJuego extends javax.swing.JFrame implements Runnable{
     int x,y,xd;
     Thread hilo1;
+    AudioClip movI,mov,disp;
     
     public VistaJuego() {
         getContentPane().setBackground(new java.awt.Color(0,0,0));
@@ -43,23 +45,22 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
             }
         });
 
-        nave.setBackground(new java.awt.Color(0, 0, 0));
         nave.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/navee.png"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(278, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(275, 275, 275)
                 .addComponent(nave)
-                .addGap(272, 272, 272))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 352, Short.MAX_VALUE)
-                .addComponent(nave, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 350, Short.MAX_VALUE)
+                .addComponent(nave))
         );
 
         pack();
@@ -78,7 +79,6 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
             hilo1=new Thread(this);
             hilo1.start();
         }else{
-            hilo1=new Thread(this);
             hilo1.start();
         }
     }
@@ -93,6 +93,14 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                     nave.setLocation(x, nave.getY());
                     
                 }
+                mov= java.applet.Applet.newAudioClip(getClass().getResource("/Archivos/movNav.wav"));
+                mov.play();
+                try{
+                    movI.stop();
+                    disp.stop();
+                }catch(Exception asd){
+                    System.out.println("sin sonido");
+                }
                 requestFocusInWindow();
             break;
             case KeyEvent.VK_LEFT:
@@ -102,9 +110,25 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                     x-=5;
                     nave.setLocation(x,nave.getY());
                 }
+                movI= java.applet.Applet.newAudioClip(getClass().getResource("/Archivos/movNav.wav"));
+                movI.play();
+                try{
+                    mov.stop();
+                    disp.stop();
+                }catch(Exception asd){
+                    System.out.println("sin sonido");
+                }
                 requestFocusInWindow();
             break;
             case KeyEvent.VK_UP:
+                disp= java.applet.Applet.newAudioClip(getClass().getResource("/Archivos/disparo.wav"));
+                disp.play();
+                try{
+                    movI.stop();
+                    mov.stop();
+                }catch(Exception asd){
+                    System.out.println("sin sonido");
+                }
                 xd=x+25;
                 y=nave.getY();
                 inicio();
@@ -124,8 +148,8 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     public void run() {
         try {
             while(y>0){
-                Thread.sleep(10);
-                y-=2;
+                Thread.sleep(50);
+                y-=1;
                 repaint();
             }
         } catch (InterruptedException ex) {
