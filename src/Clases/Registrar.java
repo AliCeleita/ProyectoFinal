@@ -43,6 +43,10 @@ public class Registrar extends javax.swing.JPanel {
     private DefaultTableModel table_model_personas,table_model_juvenil,table_model_adultos;
     private Date fecha1,fecha3,fecha5;
     public Timestamp fecha2,fecha4,fecha6;
+    public Adultos ad;
+    public Juvenil ju;
+    public Mostrar in;
+    
     
     public Registrar() {
         initComponents();
@@ -295,14 +299,23 @@ public class Registrar extends javax.swing.JPanel {
                     if(edad1>=5&&edad1<=15){
                         per=Persona.crear(0, doc1, nom1, ape1, edad1, nac2,fecSeg);
                         Repositorio.crear(per);
+                        ad.configuracion();
+                        in.configuracion();
+                        ju.configuracion();
                         JOptionPane.showMessageDialog(this, "Persona creada satisfactoriamente", "Bien", JOptionPane.INFORMATION_MESSAGE);
                     }else if(edad1>=16&&edad1<=24){
                         per=Persona.crear(0, doc1, nom1, ape1, edad1, nac2,fecSeg);
                         Repositorio.crear2(per);
+                        ad.configuracion();
+                        in.configuracion();
+                        ju.configuracion();
                         JOptionPane.showMessageDialog(this, "Persona creada satisfactoriamente", "Bien", JOptionPane.INFORMATION_MESSAGE);
                     }else if(edad1>=25&&edad1<=50){
                         per=Persona.crear(0, doc1, nom1, ape1, edad1, nac2,fecSeg);
                         Repositorio.crear3(per);
+                        ad.configuracion();
+                        in.configuracion();
+                        ju.configuracion();
                         JOptionPane.showMessageDialog(this, "Persona creada satisfactoriamente", "Bien", JOptionPane.INFORMATION_MESSAGE);
                     }else{
                         JOptionPane.showMessageDialog(null,"Datos incorrectos, edad incorrecta");
