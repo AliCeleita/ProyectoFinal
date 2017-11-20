@@ -91,6 +91,12 @@ public class Inicio extends javax.swing.JFrame {
         Jugadores asd=new Jugadores();
         asd.setVisible(true);
         requestFocusInWindow();
+        
+        /*
+        Se agrega el audio que estara al inicio del juego y al presionar 
+        un boton, se cambiara de JFrame
+        */
+        
     }//GEN-LAST:event_usuariosActionPerformed
 
     private void bjugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjugarActionPerformed
@@ -101,6 +107,12 @@ public class Inicio extends javax.swing.JFrame {
         VistaJuego qwe = new VistaJuego();
         qwe.setVisible(true);
         requestFocusInWindow();
+        
+        /*
+        Se agrega el audio que estara al inicio del juego y al presionar 
+        un boton, se cambiara de JFrame
+        */
+        
     }//GEN-LAST:event_bjugarActionPerformed
 
     /**

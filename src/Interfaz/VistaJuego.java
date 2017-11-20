@@ -313,6 +313,10 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         super.paint(g);
         g.setColor(Color.white);
         g.fillRect(xd,y,2,10);
+        movimientoAlien();
+        /*
+        Se manejara el color de JFrame y se añade el distaro de la nave
+        */
     }
     
     public void inicio(){
@@ -322,6 +326,9 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         }else{
             hilo1.start();
         }
+        /*
+        Inicio y manejo de hilo
+        */
     }
     
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
@@ -353,6 +360,9 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 requestFocusInWindow();
             break;
         }
+        /*
+        Se escuchara el teclado y se llama al hilo del disparo y se le agrega sonido al disparo
+        */
     }//GEN-LAST:event_formKeyPressed
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel ali1;
@@ -396,15 +406,45 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
 
     @Override
     public void run() {
+        
         try {
             while(y>0){
                 Thread.sleep(50);
                 y-=1;
                 repaint();
             }
+            
         } catch (InterruptedException ex) {
             Logger.getLogger(VistaJuego.class.getName()).log(Level.SEVERE, null, ex);
         }
+        /*
+        Movimiento del hilo del disparo
+        */
+    }
+    
+    public void movimientoAlien(){
+        int x1=250,i;
+        try {
+            if(mar1.getX()>50){
+                while(mar1.getX()>50){
+                    Thread.sleep(50);
+                    mar1.setLocation(mar1.getX()-1, mar1.getY());
+                    mar2.setLocation(mar2.getX()-1, mar2.getY());
+                    mar3.setLocation(mar3.getX()-1, mar3.getY());
+                }
+            }else if(mar3.getX()<550){
+                while(mar3.getX()<550){
+                    Thread.sleep(50);
+                    mar1.setLocation(mar1.getX()+1, mar1.getY());
+                    mar2.setLocation(mar2.getX()+1, mar2.getY());
+                    mar3.setLocation(mar3.getX()+1, mar3.getY());
+                }
+            }
+            
+        } catch (InterruptedException ex) {
+            Logger.getLogger(VistaJuego.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
 }
