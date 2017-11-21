@@ -5,6 +5,8 @@
  */
 package Interfaz;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Brayan
@@ -12,10 +14,10 @@ package Interfaz;
 public class Puntaje extends javax.swing.JPanel {
 
     static int puntaje=0;
-    
+    static String jugador,asd;
+    static int v,n=0;
     public Puntaje() {
         initComponents();
-        
     }
 
     @SuppressWarnings("unchecked")
@@ -91,18 +93,43 @@ public class Puntaje extends javax.swing.JPanel {
                     .addComponent(vida2, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-
+    public void setJugador( String jugador){
+        this.jugador=jugador;
+    }
+    
+    public static int velocidad(){
+        if(puntaje<=1150){
+            v=2;
+            return v;
+        }else if(puntaje<=2300){
+            v=6;
+            return v;
+        }else{
+            v=10;
+            return v;
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel Lpuntos;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel pu;
     private javax.swing.JLabel vi;
-    private javax.swing.JLabel vida1;
-    private javax.swing.JLabel vida2;
-    private javax.swing.JLabel vida3;
+    private static javax.swing.JLabel vida1;
+    private static javax.swing.JLabel vida2;
+    private static javax.swing.JLabel vida3;
     // End of variables declaration//GEN-END:variables
-
+    public static void restarVidas(){
+        n++;
+        if(n==1){
+            vida1.setVisible(false);
+        }else if(n==2){
+            vida2.setVisible(false);
+        }else if(n==3){
+            vida3.setVisible(false);
+            JOptionPane.showMessageDialog(null, "Fin del juego");
+            Inicio.main(null);
+        }
+    }
     public static void sumarPuntos(){
         puntaje+=100;
         Lpuntos.setText(Integer.toString(puntaje));

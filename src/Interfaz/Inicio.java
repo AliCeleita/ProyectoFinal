@@ -4,7 +4,11 @@
  * and open the template in the editor.
  */
 package Interfaz;
+import Clases.Repositorio;
 import java.applet.AudioClip;
+import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 /**
  *
  * @authores Alisson Celeita
@@ -13,6 +17,9 @@ import java.applet.AudioClip;
 public class Inicio extends javax.swing.JFrame {
     public static AudioClip sonido;
     public VistaJuego vis;
+    public String[] combo;
+    public String seleccion;
+    public Puntaje jug;
     /*
         JFrame principal del juego, es el menu de inicio donde la persona
         escoge a que opcion entrar
@@ -22,6 +29,7 @@ public class Inicio extends javax.swing.JFrame {
         //Bloquea el JFrame y asi no modifican su tamaño
         this.setResizable(false);
         this.setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -39,7 +47,7 @@ public class Inicio extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         Fondo = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(153, 153, 255));
         setBounds(new java.awt.Rectangle(0, 0, 600, 400));
         setMinimumSize(new java.awt.Dimension(600, 400));
@@ -90,6 +98,7 @@ public class Inicio extends javax.swing.JFrame {
     
     //Configuracion de botones, llamando los otros JFrame
     private void usuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuariosActionPerformed
+        
         sonido.stop();
         AudioClip laser= java.applet.Applet.newAudioClip(getClass().getResource("/Archivos/laser.wav"));
         laser.play();
@@ -106,12 +115,24 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_usuariosActionPerformed
 
     private void bjugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjugarActionPerformed
+        combo=new String[Repositorio.combo().size()];
+        combo=Repositorio.combo().toArray(combo);
+        seleccion=(String)JOptionPane.showInputDialog(null, "Seleccione un usuario", "Jugadores", JOptionPane.YES_NO_OPTION,null,combo, combo[0]);
+        if(seleccion.isEmpty()){
+            try{
+                bjugar.setEnabled(false);
+            }catch(Exception asd){
+                JOptionPane.showMessageDialog(null, "Debe registrar usuario");
+            }
+        }else{
+            jug.setJugador(seleccion);
+            this.dispose();
+            VistaJuego qwe = new VistaJuego();
+            qwe.setVisible(true);
+        }
         sonido.stop();
         AudioClip laser= java.applet.Applet.newAudioClip(getClass().getResource("/Archivos/laser.wav"));
         laser.play();
-        this.dispose();
-        VistaJuego qwe = new VistaJuego();
-        qwe.setVisible(true);
         requestFocusInWindow();
         /*
         Se agrega el audio que estara al inicio del juego y al presionar 

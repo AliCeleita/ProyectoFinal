@@ -185,4 +185,23 @@ public class Repositorio {
         tablas que se crearon en una base de datos en PhpMyAdmin
         */
     }
+    
+    public static ArrayList <String> combo(){
+        ArrayList<String> rec = new ArrayList<String>();
+        try {
+            String query = "SELECT * FROM registrotodos;";
+            PreparedStatement sentenciaP = database.open().prepareStatement(query);
+            ResultSet resultado = sentenciaP.executeQuery();
+            while(resultado.next()){
+                rec.add(resultado.getString("nom")+" "+resultado.getString("ape"));
+            }
+            sentenciaP.close();
+            database.close();
+            return rec;
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return rec;
+    }
 }
