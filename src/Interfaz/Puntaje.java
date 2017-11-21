@@ -139,15 +139,15 @@ public class Puntaje extends javax.swing.JPanel {
         }
     }*/
     public static void sumarPuntos(){
-        puntaje+=100;
+        puntaje+=500;
         Lpuntos.setText(Integer.toString(puntaje));
         if(puntaje==3500){
             JOptionPane.showMessageDialog(null, "Ganaste");
             Inicio.main(null);
-            LocalDateTime hoy=LocalDateTime.now();
+            /*LocalDateTime hoy=LocalDateTime.now();
             fecSeg=Timestamp.valueOf(hoy);
             obj= HistorialPuntajes.crear(0, jugador, puntaje, fecSeg);
-            Repositorio.crear5(obj);
+            Repositorio.crear5(obj);*/
         }
     }
     
