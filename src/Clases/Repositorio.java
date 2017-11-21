@@ -82,6 +82,27 @@ public class Repositorio {
         */
     }
     
+    public static void crear4 (Persona persona) {
+        try {
+            String query = "INSERT INTO registrotodos (doc, nom, ape, edad, fecNac, fecReg) VALUES (?, ?, ?, ?, ?, ?);";
+            PreparedStatement sentenciaP = database.open().prepareStatement(query);
+            sentenciaP.setInt(1,persona.getDoc());
+            sentenciaP.setString(2, persona.getNom());
+            sentenciaP.setString(3, persona.getApe());
+            sentenciaP.setInt(4,persona.getEdad());
+            sentenciaP.setDate(5,persona.getFecNac());
+            sentenciaP.setTimestamp(6,persona.getFecSeg());
+            sentenciaP.executeUpdate();
+            database.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        /*
+        Se ingresaran las personas TODOS a una tabla en PhpMyAdmin
+        ingresaran por un registro que se les realizara al inicio del juego
+        */
+    }
+    
     public static ArrayList<Persona> obtenerTodos() {
         ArrayList<Persona> personasP = new ArrayList<Persona>();
 
