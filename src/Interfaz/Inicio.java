@@ -11,8 +11,7 @@ import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 /**
  *
- * @authores Alisson Celeita
- * Brayan Garcia
+ * @author AliCeleita
  */
 public class Inicio extends javax.swing.JFrame {
     public static AudioClip sonido;
@@ -115,7 +114,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_usuariosActionPerformed
 
     private void bjugarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjugarActionPerformed
-        combo=new String[Repositorio.combo().size()];
+        /*combo=new String[Repositorio.combo().size()];
         combo=Repositorio.combo().toArray(combo);
         seleccion=(String)JOptionPane.showInputDialog(null, "Seleccione un usuario", "Jugadores", JOptionPane.YES_NO_OPTION,null,combo, combo[0]);
         if(seleccion.isEmpty()){
@@ -124,12 +123,12 @@ public class Inicio extends javax.swing.JFrame {
             }catch(Exception asd){
                 JOptionPane.showMessageDialog(null, "Debe registrar usuario");
             }
-        }else{
-            jug.setJugador(seleccion);
+        }else{*/
+            //jug.setJugador(seleccion);
             this.dispose();
             VistaJuego qwe = new VistaJuego();
             qwe.setVisible(true);
-        }
+        //}
         sonido.stop();
         AudioClip laser= java.applet.Applet.newAudioClip(getClass().getResource("/Archivos/laser.wav"));
         laser.play();

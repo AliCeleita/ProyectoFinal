@@ -7,8 +7,7 @@ package Interfaz;
 
 /**
  *
- * @authores Alisson Celeita
- * Brayan Garcia
+ * @author AliCeleita
  */
 public class Jugadores extends javax.swing.JFrame {
     //En este JFrame se manejan todos los paneles que contienen la informacion de los jugadores
@@ -60,9 +59,6 @@ public class Jugadores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    /**
-     * @param args the command line arguments
-     */
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

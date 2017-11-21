@@ -137,10 +137,10 @@ public class Puntaje extends javax.swing.JPanel {
             v=2;
             return v;
         }else if(puntaje<=2300){
-            v=6;
+            v=8;
             return v;
         }else{
-            v=10;
+            v=16;
             return v;
         }
     }
@@ -174,6 +174,14 @@ public class Puntaje extends javax.swing.JPanel {
     public static void sumarPuntos(){
         puntaje+=100;
         Lpuntos.setText(Integer.toString(puntaje));
+        if(puntaje==3500){
+            JOptionPane.showMessageDialog(null, "Ganaste");
+            Inicio.main(null);
+            LocalDateTime hoy=LocalDateTime.now();
+            fecSeg=Timestamp.valueOf(hoy);
+            obj= HistorialPuntajes.crear(0, jugador, puntaje, fecSeg);
+            Repositorio.crear5(obj);
+        }
     }
     
 }

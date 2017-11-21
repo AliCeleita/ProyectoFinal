@@ -440,7 +440,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 mar2.setLocation(mar2.getX()-Puntaje.velocidad(), mar2.getY());
                 mar3.setLocation(mar3.getX()-Puntaje.velocidad(), mar3.getY());
                 repaint();
-                if(mar1.getX()==-1){
+                if(mar1.getX()<=-1||mar1.getX()<=0){
                     dir=2;
                 }
             }
@@ -450,7 +450,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 mar2.setLocation(mar2.getX()+Puntaje.velocidad(), mar2.getY());
                 mar3.setLocation(mar3.getX()+Puntaje.velocidad(), mar3.getY());
                 repaint();
-                if(mar3.getX()==601){
+                if(mar3.getX()>=601||mar3.getX()>=600){
                     dir=1;    
                 }
             }
@@ -470,13 +470,13 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 mar7.setLocation(mar7.getX()+Puntaje.velocidad(), mar7.getY());
                 mar8.setLocation(mar8.getX()+Puntaje.velocidad(), mar8.getY());
                 repaint();
-                if(mar8.getX()==600){
+                if(mar8.getX()>=600||mar8.getX()>=601){
                     dir2=1;
-                    System.out.println("Si entraaaaa");
+                    
                 }
             }
             if(dir2==1&&mar4.getX()>0){
-                System.out.println("Si entra");
+                
                 Thread.sleep(50);
                 mar4.setLocation(mar4.getX()-Puntaje.velocidad(), mar4.getY());
                 mar5.setLocation(mar5.getX()-Puntaje.velocidad(), mar5.getY());
@@ -484,7 +484,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 mar7.setLocation(mar7.getX()-Puntaje.velocidad(), mar7.getY());
                 mar8.setLocation(mar8.getX()-Puntaje.velocidad(), mar8.getY());
                 repaint();
-                if(mar4.getX()==0){
+                if(mar4.getX()<=0||mar4.getX()<=-1){
                     dir2=2;
                     
                 }
@@ -507,7 +507,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 ali6.setLocation(ali6.getX()-Puntaje.velocidad(), ali6.getY());
                 ali7.setLocation(ali7.getX()-Puntaje.velocidad(), ali7.getY());
                 repaint();
-                if(ali1.getX()==-1){
+                if(ali1.getX()<=-1||ali1.getX()<=0){
                     dir3=2;
                 }
             }
@@ -521,7 +521,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 ali6.setLocation(ali6.getX()+Puntaje.velocidad(), ali6.getY());
                 ali7.setLocation(ali7.getX()+Puntaje.velocidad(), ali7.getY());
                 repaint();
-                if(ali7.getX()==601){
+                if(ali7.getX()>=601||ali7.getX()>=600){
                     dir3=1;
                     
                 }
@@ -546,7 +546,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 ali15.setLocation(ali15.getX()+Puntaje.velocidad(), ali15.getY());
                 ali16.setLocation(ali16.getX()+Puntaje.velocidad(), ali16.getY());
                 repaint();
-                if(ali16.getX()==600){
+                if(ali16.getX()>=600||ali16.getX()>=601){
                     dir4=1;
                 }
             }
@@ -562,7 +562,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 ali15.setLocation(ali15.getX()-Puntaje.velocidad(), ali15.getY());
                 ali16.setLocation(ali16.getX()-Puntaje.velocidad(), ali16.getY());
                 repaint();
-                if(ali8.getX()==0){
+                if(ali8.getX()<=0||ali8.getX()<=-1){
                     dir4=2;
                     
                 }
@@ -589,7 +589,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 alien10.setLocation(alien10.getX()-Puntaje.velocidad(), alien10.getY());
                 alien11.setLocation(alien11.getX()-Puntaje.velocidad(), alien11.getY());
                 repaint();
-                if(alien1.getX()==-1){
+                if(alien1.getX()<=-1){
                     dir5=2;
                 }
             }
@@ -607,7 +607,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 alien10.setLocation(alien10.getX()+Puntaje.velocidad(), alien10.getY());
                 alien11.setLocation(alien11.getX()+Puntaje.velocidad(), alien11.getY());
                 repaint();
-                if(alien11.getX()==601){
+                if(alien11.getX()>=601){
                     dir5=1;
                     
                 }
@@ -618,8 +618,10 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         
     }
     public void compDisp(){
-        if(conDis-conCho>5){
+        if(conDis-conCho<1){
             Puntaje.restarVidas();
+            conDis=0;
+            conCho=0;
         }
     }
     public void comNav(){
