@@ -7,6 +7,7 @@ package Clases;
 
 import Clases.Repositorio;
 import Clases.Persona;
+import Interfaz.Jugadores;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -46,6 +47,8 @@ public class Registrar extends javax.swing.JPanel {
     public Adultos ad;
     public Juvenil ju;
     public Mostrar in;
+    public String documento;
+    public Jugadores obj1;
     
     
     public Registrar() {
@@ -296,6 +299,11 @@ public class Registrar extends javax.swing.JPanel {
                     ValidarNumero(edad1);
                     ValidarFecha(diaa, mees, anoo);
                     
+                    if(Repositorio.Comparar(doc1)==1){
+                        //Abueno
+                        
+                    }else{
+
                     if(edad1>=5&&edad1<=15){
                         per=Persona.crear(0, doc1, nom1, ape1, edad1, nac2,fecSeg);
                         Repositorio.crear(per);
@@ -328,7 +336,7 @@ public class Registrar extends javax.swing.JPanel {
                     ape.setText("");
                     edad.setText("");
                     url.setText("");
-                    
+                    }
                     /*
                     Segun la edad que tenga se enviaran a una tabla especifica para
                     cada categoria 

@@ -6,12 +6,14 @@
 package Clases;
 
 import Clases.Persona;
+import Interfaz.Inicio;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import Database.DBManager;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Repositorio {
 	
@@ -248,5 +250,27 @@ public class Repositorio {
             System.out.println(e.getMessage());
         }
         return rec;
+    }
+    
+    public static int Comparar(int documento) {
+        int b=0,b1=0;
+        try {
+            String query = "SELECT * FROM registrotodos WHERE doc = '"+documento+"';";
+            PreparedStatement sentenciaP = database.open().prepareStatement(query);
+            ResultSet resultado = sentenciaP.executeQuery();
+            while (resultado.next()) {
+                JOptionPane.showMessageDialog(null,"Documento ya registrado");
+                b=1;
+                Inicio.main(null);
+                
+            }
+            
+            sentenciaP.close();
+            database.close();
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+        return b;
     }
 }

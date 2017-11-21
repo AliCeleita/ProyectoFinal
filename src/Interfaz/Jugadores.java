@@ -68,4 +68,9 @@ public class Jugadores extends javax.swing.JFrame {
     private Clases.Mostrar mostrar1;
     private Clases.Registrar registrar1;
     // End of variables declaration//GEN-END:variables
+
+    public void cerrarVentana(){
+        this.setVisible(false);
+    }
+    
 }
