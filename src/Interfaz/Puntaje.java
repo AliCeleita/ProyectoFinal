@@ -37,11 +37,7 @@ public class Puntaje extends javax.swing.JPanel {
     private void initComponents() {
 
         pu = new javax.swing.JLabel();
-        vi = new javax.swing.JLabel();
         Lpuntos = new javax.swing.JLabel();
-        vida3 = new javax.swing.JLabel();
-        vida2 = new javax.swing.JLabel();
-        vida1 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(0, 0, 0));
@@ -52,17 +48,8 @@ public class Puntaje extends javax.swing.JPanel {
         pu.setText("Puntos");
         pu.setAlignmentX(0.5F);
 
-        vi.setForeground(new java.awt.Color(255, 255, 255));
-        vi.setText("Vidas");
-
         Lpuntos.setForeground(new java.awt.Color(255, 255, 255));
         Lpuntos.setText("0");
-
-        vida3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/vidas.png"))); // NOI18N
-
-        vida2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/vidas.png"))); // NOI18N
-
-        vida1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Archivos/vidas.png"))); // NOI18N
 
         jLabel5.setText("0");
 
@@ -76,15 +63,7 @@ public class Puntaje extends javax.swing.JPanel {
                     .addComponent(pu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel5)
                     .addComponent(Lpuntos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 384, Short.MAX_VALUE)
-                .addComponent(vida1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(vi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(vida2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(vida3)
-                .addGap(22, 22, 22))
+                .addContainerGap(523, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,14 +74,6 @@ public class Puntaje extends javax.swing.JPanel {
                 .addComponent(Lpuntos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(vi)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(vida1, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(vida3, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(vida2, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
     }// </editor-fold>//GEN-END:initComponents
     
@@ -148,12 +119,8 @@ public class Puntaje extends javax.swing.JPanel {
     public static javax.swing.JLabel Lpuntos;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel pu;
-    private javax.swing.JLabel vi;
-    private static javax.swing.JLabel vida1;
-    private static javax.swing.JLabel vida2;
-    private static javax.swing.JLabel vida3;
     // End of variables declaration//GEN-END:variables
-    public static void restarVidas(){
+    /*public static void restarVidas(){
         n++;
         if(n==1){
             vida1.setVisible(false);
@@ -170,7 +137,7 @@ public class Puntaje extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "Fin del juego");
             Inicio.main(null);
         }
-    }
+    }*/
     public static void sumarPuntos(){
         puntaje+=100;
         Lpuntos.setText(Integer.toString(puntaje));

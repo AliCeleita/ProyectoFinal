@@ -27,6 +27,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     int conDis=0,conCho=0;
     
     public VistaJuego() {
+        
         getContentPane().setBackground(new java.awt.Color(0,0,0));
         initComponents();
         this.setResizable(false);
@@ -315,7 +316,8 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     }// </editor-fold>//GEN-END:initComponents
     
     public void paint(Graphics g){
-        comNav();
+        //comNav();
+        comTab();
         moviLin1();
         moviLin2();
         moviLin3();
@@ -362,6 +364,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 requestFocusInWindow();
             break;
             case KeyEvent.VK_UP:
+                
                 conDis++;
                 disp= java.applet.Applet.newAudioClip(getClass().getResource("/Archivos/disparo.wav"));
                 disp.play();
@@ -420,7 +423,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         try {
             while(y>0){
                 Thread.sleep(50);
-                y-=2;
+                y-=5;
                 repaint();
             }
             
@@ -619,7 +622,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     }
     public void compDisp(){
         if(conDis-conCho<1){
-            Puntaje.restarVidas();
+            //Puntaje.restarVidas();
             conDis=0;
             conCho=0;
         }
@@ -878,5 +881,12 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         }
     }
     
-    
+    public void comTab(){
+        if(Math.sqrt((Math.pow((xd-xd), 2))-(Math.pow((0-y), 2)))==0&&conDis>0){
+
+                conCho++;
+                conDis=0;
+                Puntaje.sumarPuntos();
+        }
+    }
 }
