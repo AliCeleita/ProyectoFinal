@@ -8,7 +8,9 @@ package Interfaz;
 import java.applet.AudioClip;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.awt.geom.Rectangle2D;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,11 +23,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     int x,y,xd;
     Thread hilo1;
     AudioClip disp;
-    int dir=1;
-    int dir2=2;
-    int dir3=1;
-    int dir4=2;
-    int dir5=1;
+    int dir=1,dir2=2,dir3=1,dir4=2,dir5=1;
     
     public VistaJuego() {
         getContentPane().setBackground(new java.awt.Color(0,0,0));
@@ -34,6 +32,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         this.setLocationRelativeTo(null);
         puntaje1.setVisible(true);
         x=nave.getX();
+        
         hilo1=new Thread(this);
     }
     
@@ -315,6 +314,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     }// </editor-fold>//GEN-END:initComponents
     
     public void paint(Graphics g){
+        comNav();
         moviLin1();
         moviLin2();
         moviLin3();
@@ -323,7 +323,6 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         super.paint(g);
         g.setColor(Color.white);
         g.fillRect(xd,y,2,10);
-        
         /*
         Se manejara el color de JFrame y se añade el disparo de la nave
         */
@@ -416,11 +415,10 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
 
     @Override
     public void run() {
-        
         try {
             while(y>0){
                 Thread.sleep(50);
-                y-=1;
+                y-=2;
                 repaint();
             }
             
@@ -439,20 +437,19 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 mar1.setLocation(mar1.getX()-2, mar1.getY());
                 mar2.setLocation(mar2.getX()-2, mar2.getY());
                 mar3.setLocation(mar3.getX()-2, mar3.getY());
-                
+                repaint();
                 if(mar1.getX()==-1){
                     dir=2;
                 }
             }
             if(dir==2&&mar3.getX()<600){
-                
                 Thread.sleep(50);
                 mar1.setLocation(mar1.getX()+2, mar1.getY());
                 mar2.setLocation(mar2.getX()+2, mar2.getY());
                 mar3.setLocation(mar3.getX()+2, mar3.getY());
+                repaint();
                 if(mar3.getX()==601){
-                    dir=1;
-                    
+                    dir=1;    
                 }
             }
         } catch (InterruptedException ex) {
@@ -470,7 +467,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 mar6.setLocation(mar6.getX()+2, mar6.getY());
                 mar7.setLocation(mar7.getX()+2, mar7.getY());
                 mar8.setLocation(mar8.getX()+2, mar8.getY());
-                
+                repaint();
                 if(mar8.getX()==600){
                     dir2=1;
                     System.out.println("Si entraaaaa");
@@ -484,6 +481,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 mar6.setLocation(mar6.getX()-2, mar6.getY());
                 mar7.setLocation(mar7.getX()-2, mar7.getY());
                 mar8.setLocation(mar8.getX()-2, mar8.getY());
+                repaint();
                 if(mar4.getX()==0){
                     dir2=2;
                     
@@ -506,13 +504,12 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 ali5.setLocation(ali5.getX()-2, ali5.getY());
                 ali6.setLocation(ali6.getX()-2, ali6.getY());
                 ali7.setLocation(ali7.getX()-2, ali7.getY());
-                
+                repaint();
                 if(ali1.getX()==-1){
                     dir3=2;
                 }
             }
             if(dir3==2&&ali7.getX()<600){
-                
                 Thread.sleep(50);
                 ali1.setLocation(ali1.getX()+2, ali1.getY());
                 ali2.setLocation(ali2.getX()+2, ali2.getY());
@@ -521,7 +518,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 ali5.setLocation(ali5.getX()+2, ali5.getY());
                 ali6.setLocation(ali6.getX()+2, ali6.getY());
                 ali7.setLocation(ali7.getX()+2, ali7.getY());
-                
+                repaint();
                 if(ali7.getX()==601){
                     dir3=1;
                     
@@ -546,14 +543,12 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 ali14.setLocation(ali14.getX()+2, ali14.getY());
                 ali15.setLocation(ali15.getX()+2, ali15.getY());
                 ali16.setLocation(ali16.getX()+2, ali16.getY());
-                
+                repaint();
                 if(ali16.getX()==600){
                     dir4=1;
-                    System.out.println("Si entraaaaa");
                 }
             }
             if(dir4==1&&ali8.getX()>0){
-                System.out.println("Si entra");
                 Thread.sleep(50);
                 ali8.setLocation(ali8.getX()-2, ali8.getY());
                 ali9.setLocation(ali9.getX()-2, ali9.getY());
@@ -564,6 +559,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 ali14.setLocation(ali14.getX()-2, ali14.getY());
                 ali15.setLocation(ali15.getX()-2, ali15.getY());
                 ali16.setLocation(ali16.getX()-2, ali16.getY());
+                repaint();
                 if(ali8.getX()==0){
                     dir4=2;
                     
@@ -590,13 +586,12 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 alien9.setLocation(alien9.getX()-2, alien9.getY());
                 alien10.setLocation(alien10.getX()-2, alien10.getY());
                 alien11.setLocation(alien11.getX()-2, alien11.getY());
-                
+                repaint();
                 if(alien1.getX()==-1){
                     dir5=2;
                 }
             }
             if(dir5==2&&alien11.getX()<600){
-                
                 Thread.sleep(50);
                 alien1.setLocation(alien1.getX()+2, alien1.getY());
                 alien2.setLocation(alien2.getX()+2, alien2.getY());
@@ -609,7 +604,7 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
                 alien9.setLocation(alien9.getX()+2, alien9.getY());
                 alien10.setLocation(alien10.getX()+2, alien10.getY());
                 alien11.setLocation(alien11.getX()+2, alien11.getY());
-                
+                repaint();
                 if(alien11.getX()==601){
                     dir5=1;
                     
@@ -620,5 +615,196 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
         }
         
     }
+    
+    public void comNav(){
+        if(Math.sqrt((Math.pow((alien1.getX()-xd), 2))-(Math.pow((alien1.getY()-y), 2)))==0){
+            
+                alien1.setVisible(false);
+                alien1.setEnabled(true);
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((alien2.getX()-xd), 2))-(Math.pow((alien2.getY()-y), 2)))==0){
+          
+                alien2.setVisible(false);
+                alien2.setEnabled(true);
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((alien3.getX()-xd), 2))-(Math.pow((alien3.getY()-y), 2)))==0){
+        
+                alien3.setVisible(false);
+                alien3.setEnabled(true);
+                
+                hilo1=new Thread();
+            
+        }else if(Math.sqrt((Math.pow((alien4.getX()-xd), 2))-(Math.pow((alien4.getY()-y), 2)))==0){
+            
+                alien4.setVisible(false);
+                alien4.setEnabled(true);
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((alien5.getX()-xd), 2))-(Math.pow((alien5.getY()-y), 2)))==0){
+            
+                alien5.setVisible(false);
+                alien5.setEnabled(true);
+                hilo1=new Thread();
+            
+        }else if(Math.sqrt((Math.pow((alien6.getX()-xd), 2))-(Math.pow((alien6.getY()-y), 2)))==0){
+            
+                alien6.setVisible(false);
+                alien6.setEnabled(true);
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((alien7.getX()-xd), 2))-(Math.pow((alien7.getY()-y), 2)))==0){
+            
+                alien7.setVisible(false);
+                alien7.setEnabled(true);
+                hilo1=new Thread();
+            
+        }else if(Math.sqrt((Math.pow((alien8.getX()-xd), 2))-(Math.pow((alien8.getY()-y), 2)))==0){
+            
+                alien8.setVisible(false);
+                alien8.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((alien9.getX()-xd), 2))-(Math.pow((alien9.getY()-y), 2)))==0){
+           
+                alien9.setVisible(false);
+                alien9.setEnabled(true); 
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((alien10.getX()-xd), 2))-(Math.pow((alien10.getY()-y), 2)))==0){
+            
+                alien10.setVisible(false);
+                alien10.setEnabled(true); 
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((alien11.getX()-xd), 2))-(Math.pow((alien11.getY()-y), 2)))==0){
+            
+                alien11.setVisible(false);
+                alien11.setEnabled(true);
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali1.getX()-xd), 2))-(Math.pow((ali1.getY()-y), 2)))==0){
+            
+                ali1.setVisible(false);
+                ali1.setEnabled(true); 
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali2.getX()-xd), 2))-(Math.pow((ali2.getY()-y), 2)))==0){
+            
+                ali2.setVisible(false);
+                ali2.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali3.getX()-xd), 2))-(Math.pow((ali3.getY()-y), 2)))==0){
+            
+                ali3.setVisible(false);
+                ali3.setEnabled(true); 
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali4.getX()-xd), 2))-(Math.pow((ali4.getY()-y), 2)))==0){
+            ali4.setVisible(false);
+                ali4.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali5.getX()-xd), 2))-(Math.pow((ali5.getY()-y), 2)))==0){
+            
+                ali5.setVisible(false);
+                ali5.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali6.getX()-xd), 2))-(Math.pow((ali6.getY()-y), 2)))==0){
+            
+                ali6.setVisible(false);
+                ali6.setEnabled(true); 
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali7.getX()-xd), 2))-(Math.pow((ali7.getY()-y), 2)))==0){
+            
+                ali7.setVisible(false);
+                ali7.setEnabled(true);
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali8.getX()-xd), 2))-(Math.pow((ali8.getY()-y), 2)))==0){
+            
+                ali8.setVisible(false);
+                ali8.setEnabled(true);
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali9.getX()-xd), 2))-(Math.pow((ali9.getY()-y), 2)))==0){
+            
+                ali9.setVisible(false);
+                ali9.setEnabled(true); 
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali10.getX()-xd), 2))-(Math.pow((ali10.getY()-y), 2)))==0){
+            
+                ali10.setVisible(false);
+                ali10.setEnabled(true); 
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali11.getX()-xd), 2))-(Math.pow((ali11.getY()-y), 2)))==0){
+            
+                ali11.setVisible(false);
+                ali11.setEnabled(true);
+                  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali12.getX()-xd), 2))-(Math.pow((ali12.getY()-y), 2)))==0){
+            
+                ali12.setVisible(false);
+                ali12.setEnabled(true);
+                hilo1=new Thread();
+            
+        }else if(Math.sqrt((Math.pow((ali13.getX()-xd), 2))-(Math.pow((ali13.getY()-y), 2)))==0){
+            
+                ali13.setVisible(false);
+                ali13.setEnabled(true);
+                  
+                hilo1=new Thread();
+            
+        }else if(Math.sqrt((Math.pow((ali14.getX()-xd), 2))-(Math.pow((ali14.getY()-y), 2)))==0){
+            
+                ali14.setVisible(false);
+                ali14.setEnabled(true);
+                 
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((ali15.getX()-xd), 2))-(Math.pow((ali15.getY()-y), 2)))==0){
+            
+                ali15.setVisible(false);
+                ali15.setEnabled(true);
+                
+                hilo1=new Thread();
+            
+        }else if(Math.sqrt((Math.pow((ali16.getX()-xd), 2))-(Math.pow((ali16.getY()-y), 2)))==0){
+            
+                ali16.setVisible(false);
+                ali16.setEnabled(true);  
+                hilo1=new Thread();
+            
+        }else if(Math.sqrt((Math.pow((mar1.getX()-xd), 2))-(Math.pow((mar1.getY()-y), 2)))==0){
+            
+                mar1.setVisible(false);
+                mar1.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((mar2.getX()-xd), 2))-(Math.pow((mar2.getY()-y), 2)))==0){
+            
+                mar2.setVisible(false);
+                mar2.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((mar3.getX()-xd), 2))-(Math.pow((mar3.getY()-y), 2)))==0){
+            
+                mar3.setVisible(false);
+                mar3.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((mar4.getX()-xd), 2))-(Math.pow((mar4.getY()-y), 2)))==0){
+            
+                mar4.setVisible(false);
+                mar4.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((mar5.getX()-xd), 2))-(Math.pow((mar5.getY()-y), 2)))==0){
+            
+                mar5.setVisible(false);
+                mar5.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((mar6.getX()-xd), 2))-(Math.pow((mar6.getY()-y), 2)))==0){
+            
+                mar6.setVisible(false);
+                mar6.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((mar7.getX()-xd), 2))-(Math.pow((mar7.getY()-y), 2)))==0){
+            
+                mar7.setVisible(false);
+                mar7.setEnabled(true);  
+                hilo1=new Thread();
+        }else if(Math.sqrt((Math.pow((mar8.getX()-xd), 2))-(Math.pow((mar8.getY()-y), 2)))==0){
+            
+                mar8.setVisible(false);
+                mar8.setEnabled(true);  
+                hilo1=new Thread();
+        }
+    }
+    
     
 }
