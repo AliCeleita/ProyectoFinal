@@ -103,6 +103,51 @@ public class Repositorio {
         */
     }
     
+    public static void crear5 (HistorialPuntajes pun) {
+        try {
+            String query = "INSERT INTO registrojuego (nom, puntaje, fecSeg) VALUES (?, ?, ?);";
+            PreparedStatement sentenciaP = database.open().prepareStatement(query);
+            sentenciaP.setString(1,pun.getNombre());
+            sentenciaP.setInt(2, pun.getPuntos());
+            sentenciaP.setTimestamp(3, pun.getFecSeg());
+            sentenciaP.executeUpdate();
+            database.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        /*
+        Se ingresa el historial de juego
+        */
+    }
+    
+    public static ArrayList<HistorialPuntajes> obtenerTodos4() {
+        ArrayList<HistorialPuntajes> historial = new ArrayList<HistorialPuntajes>();
+
+        try {
+            String query = "SELECT * FROM registrojuego;";
+            PreparedStatement sentenciaP = database.open().prepareStatement(query);
+            ResultSet resultado = sentenciaP.executeQuery();
+
+            while (resultado.next()) {
+                historial.add(HistorialPuntajes.crear(resultado.getInt("id"),resultado.getString("nom"),resultado.getInt("puntaje"),resultado.getTimestamp("fecReg")));
+            }
+
+            sentenciaP.close();
+            database.close();
+
+            return historial;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return historial;
+        
+        /*
+        Se creara un ArrayList para obtener a las personas INFANTILES que se registraran en una de las
+        tablas que se crearon en una base de datos en PhpMyAdmin
+        */
+    }
+    
     public static ArrayList<Persona> obtenerTodos() {
         ArrayList<Persona> personasP = new ArrayList<Persona>();
 

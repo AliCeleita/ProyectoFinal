@@ -5,7 +5,14 @@
  */
 package Interfaz;
 
+import Clases.HistorialPuntajes;
+import Clases.Persona;
+import Clases.Repositorio;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -14,8 +21,13 @@ import javax.swing.JOptionPane;
 public class Puntaje extends javax.swing.JPanel {
 
     static int puntaje=0;
-    static String jugador,asd;
+    static String jugador;
     static int v,n=0;
+    static HistorialPuntajes obj;
+    static Timestamp fecSeg;
+    public Timestamp fecha2;
+    
+    private DefaultTableModel tablaHis;
     public Puntaje() {
         initComponents();
     }
@@ -93,6 +105,29 @@ public class Puntaje extends javax.swing.JPanel {
                     .addComponent(vida2, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
     }// </editor-fold>//GEN-END:initComponents
+    
+    public void setTableModel(DefaultTableModel tablaHis){
+        this.tablaHis = tablaHis;
+    }
+    
+    public void refreshTableModel(){
+        ArrayList<HistorialPuntajes> listaHis = Repositorio.obtenerTodos4();
+        while (tablaHis.getRowCount() > 0) {
+            tablaHis.removeRow(0);
+        }
+        
+        for(HistorialPuntajes p : listaHis)
+        {
+            fecha2=p.getFecSeg();
+            String[] data = {Integer.toString(p.getId()), p.getNombre(),Integer.toString(p.getPuntos()),fecha2.toString()};
+            tablaHis.addRow(data);
+        }
+        
+        /*
+        Metodo creado para refrescar la tabla que refrescara los historiales de juego
+        */
+    }
+    
     public void setJugador( String jugador){
         this.jugador=jugador;
     }
@@ -125,6 +160,12 @@ public class Puntaje extends javax.swing.JPanel {
         }else if(n==2){
             vida2.setVisible(false);
         }else if(n==3){
+            
+            LocalDateTime hoy=LocalDateTime.now();
+            fecSeg=Timestamp.valueOf(hoy);
+            obj= HistorialPuntajes.crear(0, jugador, puntaje, fecSeg);
+            Repositorio.crear5(obj);
+            
             vida3.setVisible(false);
             JOptionPane.showMessageDialog(null, "Fin del juego");
             Inicio.main(null);

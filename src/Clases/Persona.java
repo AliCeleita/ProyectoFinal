@@ -32,6 +32,10 @@ public Persona(int id,int doc,String nom,String ape,int edad,Date fecNac,Timesta
         this.fecSeg=fecSeg; 
     }
 
+    Persona(String nombre, int puntos, Timestamp fecSeg) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getDoc() {
         return doc;
     }

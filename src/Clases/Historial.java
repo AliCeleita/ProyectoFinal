@@ -5,6 +5,7 @@
  */
 package Clases;
 
+import Interfaz.Puntaje;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -13,9 +14,7 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Historial extends javax.swing.JPanel {
 
-    /**
-     * Creates new form Historial
-     */
+    Puntaje obj1= new Puntaje();
     public Historial() {
         initComponents();
     }
@@ -72,10 +71,10 @@ public class Historial extends javax.swing.JPanel {
         modelo.addColumn("Fecha de Registro");
         
         tabla_historial.setModel(modelo);
-        //obj1.setTableModel2(modelo);
-        //obj1.refreshTableModel2();
+        obj1.setTableModel(modelo);
+        obj1.refreshTableModel();
         
-        /*forma en la que mostrara la tabla de las personas juveniles
+        /*forma en la que mostrara la tabla de historias
         al juego de Space BrAli*/
     }
 
