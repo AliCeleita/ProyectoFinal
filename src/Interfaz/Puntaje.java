@@ -11,9 +11,11 @@ package Interfaz;
  */
 public class Puntaje extends javax.swing.JPanel {
 
+    static int puntaje=0;
     
     public Puntaje() {
         initComponents();
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -92,7 +94,7 @@ public class Puntaje extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Lpuntos;
+    public static javax.swing.JLabel Lpuntos;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel pu;
     private javax.swing.JLabel vi;
@@ -100,4 +102,10 @@ public class Puntaje extends javax.swing.JPanel {
     private javax.swing.JLabel vida2;
     private javax.swing.JLabel vida3;
     // End of variables declaration//GEN-END:variables
+
+    public static void sumarPuntos(){
+        puntaje+=100;
+        Lpuntos.setText(Integer.toString(puntaje));
+    }
+    
 }

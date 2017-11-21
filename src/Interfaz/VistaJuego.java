@@ -24,6 +24,9 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     Thread hilo1;
     AudioClip disp;
     int dir=1,dir2=2,dir3=1,dir4=2,dir5=1;
+    int puntaje=0;
+    
+    Puntaje obj;
     
     public VistaJuego() {
         getContentPane().setBackground(new java.awt.Color(0,0,0));
@@ -617,192 +620,256 @@ public class VistaJuego extends javax.swing.JFrame implements Runnable{
     }
     
     public void comNav(){
-        if(Math.sqrt((Math.pow((alien1.getX()-xd), 2))-(Math.pow((alien1.getY()-y), 2)))==0){
+        if(Math.sqrt((Math.pow((alien1.getX()-xd), 2))-(Math.pow((alien1.getY()-y), 2)))==0&&alien1.getText()!="n"){
             
                 alien1.setVisible(false);
-                alien1.setEnabled(true);
+                alien1.setText("n");
+                alien1.setEnabled(false);
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((alien2.getX()-xd), 2))-(Math.pow((alien2.getY()-y), 2)))==0){
-          
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((alien2.getX()-xd), 2))-(Math.pow((alien2.getY()-y), 2)))==0&&alien2.getText()!="n"){
+                alien2.setText("n");
                 alien2.setVisible(false);
-                alien2.setEnabled(true);
+                alien2.setEnabled(false);
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((alien3.getX()-xd), 2))-(Math.pow((alien3.getY()-y), 2)))==0){
-        
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((alien3.getX()-xd), 2))-(Math.pow((alien3.getY()-y), 2)))==0&&alien3.getText()!="n"){
+                alien3.setText("n");
                 alien3.setVisible(false);
-                alien3.setEnabled(true);
+                alien3.setEnabled(false);
                 
                 hilo1=new Thread();
-            
-        }else if(Math.sqrt((Math.pow((alien4.getX()-xd), 2))-(Math.pow((alien4.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((alien4.getX()-xd), 2))-(Math.pow((alien4.getY()-y), 2)))==0&&alien4.getText()!="n"){
+                alien4.setText("n");
                 alien4.setVisible(false);
-                alien4.setEnabled(true);
+                alien4.setEnabled(false);
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((alien5.getX()-xd), 2))-(Math.pow((alien5.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((alien5.getX()-xd), 2))-(Math.pow((alien5.getY()-y), 2)))==0&&alien5.getText()!="n"){
+                alien5.setText("n");
                 alien5.setVisible(false);
-                alien5.setEnabled(true);
+                alien5.setEnabled(false);
                 hilo1=new Thread();
-            
-        }else if(Math.sqrt((Math.pow((alien6.getX()-xd), 2))-(Math.pow((alien6.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((alien6.getX()-xd), 2))-(Math.pow((alien6.getY()-y), 2)))==0&&alien6.getText()!="n"){
+                alien6.setText("n");
                 alien6.setVisible(false);
-                alien6.setEnabled(true);
+                alien6.setEnabled(false);
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((alien7.getX()-xd), 2))-(Math.pow((alien7.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((alien7.getX()-xd), 2))-(Math.pow((alien7.getY()-y), 2)))==0&&alien7.getText()!="n"){
+                alien7.setText("n");
                 alien7.setVisible(false);
-                alien7.setEnabled(true);
+                alien7.setEnabled(false);
                 hilo1=new Thread();
-            
-        }else if(Math.sqrt((Math.pow((alien8.getX()-xd), 2))-(Math.pow((alien8.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((alien8.getX()-xd), 2))-(Math.pow((alien8.getY()-y), 2)))==0&&alien8.getText()!="n"){
+                alien8.setText("n");
                 alien8.setVisible(false);
-                alien8.setEnabled(true);  
+                alien8.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((alien9.getX()-xd), 2))-(Math.pow((alien9.getY()-y), 2)))==0){
-           
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((alien9.getX()-xd), 2))-(Math.pow((alien9.getY()-y), 2)))==0&&alien9.getText()!="n"){
+                alien9.setText("n");
                 alien9.setVisible(false);
-                alien9.setEnabled(true); 
+                alien9.setEnabled(false); 
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((alien10.getX()-xd), 2))-(Math.pow((alien10.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((alien10.getX()-xd), 2))-(Math.pow((alien10.getY()-y), 2)))==0&&alien10.getText()!="n"){
+                alien10.setText("n");
                 alien10.setVisible(false);
-                alien10.setEnabled(true); 
+                alien10.setEnabled(false); 
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((alien11.getX()-xd), 2))-(Math.pow((alien11.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((alien11.getX()-xd), 2))-(Math.pow((alien11.getY()-y), 2)))==0&&alien11.getText()!="n"){
+                alien11.setText("n");
                 alien11.setVisible(false);
-                alien11.setEnabled(true);
+                alien11.setEnabled(false);
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali1.getX()-xd), 2))-(Math.pow((ali1.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali1.getX()-xd), 2))-(Math.pow((ali1.getY()-y), 2)))==0&&ali1.getText()!="n"){
+                ali1.setText("n");
                 ali1.setVisible(false);
-                ali1.setEnabled(true); 
+                ali1.setEnabled(false); 
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali2.getX()-xd), 2))-(Math.pow((ali2.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali2.getX()-xd), 2))-(Math.pow((ali2.getY()-y), 2)))==0&&ali2.getText()!="n"){
+            ali2.setText("n");
                 ali2.setVisible(false);
-                ali2.setEnabled(true);  
+                ali2.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali3.getX()-xd), 2))-(Math.pow((ali3.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali3.getX()-xd), 2))-(Math.pow((ali3.getY()-y), 2)))==0&&ali3.getText()!="n"){
+                ali3.setText("n");
                 ali3.setVisible(false);
-                ali3.setEnabled(true); 
+                ali3.setEnabled(false); 
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali4.getX()-xd), 2))-(Math.pow((ali4.getY()-y), 2)))==0){
-            ali4.setVisible(false);
-                ali4.setEnabled(true);  
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali4.getX()-xd), 2))-(Math.pow((ali4.getY()-y), 2)))==0&&ali4.getText()!="n"){
+                ali4.setText("n");
+                ali4.setVisible(false);
+                ali4.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali5.getX()-xd), 2))-(Math.pow((ali5.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali5.getX()-xd), 2))-(Math.pow((ali5.getY()-y), 2)))==0&&ali5.getText()!="n"){
+                ali5.setText("n");
                 ali5.setVisible(false);
-                ali5.setEnabled(true);  
+                ali5.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali6.getX()-xd), 2))-(Math.pow((ali6.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali6.getX()-xd), 2))-(Math.pow((ali6.getY()-y), 2)))==0&&ali6.getText()!="n"){
+                ali6.setText("n");
                 ali6.setVisible(false);
-                ali6.setEnabled(true); 
+                ali6.setEnabled(false); 
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali7.getX()-xd), 2))-(Math.pow((ali7.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali7.getX()-xd), 2))-(Math.pow((ali7.getY()-y), 2)))==0&&ali7.getText()!="n"){
+                ali7.setText("n");
                 ali7.setVisible(false);
-                ali7.setEnabled(true);
+                ali7.setEnabled(false);
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali8.getX()-xd), 2))-(Math.pow((ali8.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali8.getX()-xd), 2))-(Math.pow((ali8.getY()-y), 2)))==0&&ali8.getText()!="n"){
+                ali8.setText("n");
                 ali8.setVisible(false);
-                ali8.setEnabled(true);
+                ali8.setEnabled(false);
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali9.getX()-xd), 2))-(Math.pow((ali9.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali9.getX()-xd), 2))-(Math.pow((ali9.getY()-y), 2)))==0&&ali9.getText()!="n"){
+                ali9.setText("n");
                 ali9.setVisible(false);
-                ali9.setEnabled(true); 
+                ali9.setEnabled(false); 
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali10.getX()-xd), 2))-(Math.pow((ali10.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali10.getX()-xd), 2))-(Math.pow((ali10.getY()-y), 2)))==0&&ali10.getText()!="n"){
+                ali10.setText("n");
                 ali10.setVisible(false);
-                ali10.setEnabled(true); 
+                ali10.setEnabled(false); 
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali11.getX()-xd), 2))-(Math.pow((ali11.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali11.getX()-xd), 2))-(Math.pow((ali11.getY()-y), 2)))==0&&ali11.getText()!="n"){
+                ali11.setText("n");
                 ali11.setVisible(false);
-                ali11.setEnabled(true);
+                ali11.setEnabled(false);
                   
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali12.getX()-xd), 2))-(Math.pow((ali12.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali12.getX()-xd), 2))-(Math.pow((ali12.getY()-y), 2)))==0&&ali12.getText()!="n"){
+                ali12.setText("n");
                 ali12.setVisible(false);
-                ali12.setEnabled(true);
+                ali12.setEnabled(false);
                 hilo1=new Thread();
-            
-        }else if(Math.sqrt((Math.pow((ali13.getX()-xd), 2))-(Math.pow((ali13.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali13.getX()-xd), 2))-(Math.pow((ali13.getY()-y), 2)))==0&&ali13.getText()!="n"){
+                ali13.setText("n");
                 ali13.setVisible(false);
-                ali13.setEnabled(true);
+                ali13.setEnabled(false);
                   
                 hilo1=new Thread();
-            
-        }else if(Math.sqrt((Math.pow((ali14.getX()-xd), 2))-(Math.pow((ali14.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali14.getX()-xd), 2))-(Math.pow((ali14.getY()-y), 2)))==0&&ali14.getText()!="n"){
+                ali14.setText("n");
                 ali14.setVisible(false);
-                ali14.setEnabled(true);
+                ali14.setEnabled(false);
                  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((ali15.getX()-xd), 2))-(Math.pow((ali15.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali15.getX()-xd), 2))-(Math.pow((ali15.getY()-y), 2)))==0&&ali15.getText()!="n"){
+                ali15.setText("n");
                 ali15.setVisible(false);
-                ali15.setEnabled(true);
+                ali15.setEnabled(false);
                 
                 hilo1=new Thread();
-            
-        }else if(Math.sqrt((Math.pow((ali16.getX()-xd), 2))-(Math.pow((ali16.getY()-y), 2)))==0){
-            
+                
+               Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((ali16.getX()-xd), 2))-(Math.pow((ali16.getY()-y), 2)))==0&&ali16.getText()!="n"){
+                ali16.setText("n");
                 ali16.setVisible(false);
-                ali16.setEnabled(true);  
+                ali16.setEnabled(false);  
                 hilo1=new Thread();
-            
-        }else if(Math.sqrt((Math.pow((mar1.getX()-xd), 2))-(Math.pow((mar1.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((mar1.getX()-xd), 2))-(Math.pow((mar1.getY()-y), 2)))==0&&mar1.getText()!="n"){
+                mar1.setText("n");
                 mar1.setVisible(false);
-                mar1.setEnabled(true);  
+                mar1.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((mar2.getX()-xd), 2))-(Math.pow((mar2.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((mar2.getX()-xd), 2))-(Math.pow((mar2.getY()-y), 2)))==0&&mar2.getText()!="n"){
+                mar2.setText("n");
                 mar2.setVisible(false);
-                mar2.setEnabled(true);  
+                mar2.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((mar3.getX()-xd), 2))-(Math.pow((mar3.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((mar3.getX()-xd), 2))-(Math.pow((mar3.getY()-y), 2)))==0&&mar3.getText()!="n"){
+                mar3.setText("n");
                 mar3.setVisible(false);
-                mar3.setEnabled(true);  
+                mar3.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((mar4.getX()-xd), 2))-(Math.pow((mar4.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((mar4.getX()-xd), 2))-(Math.pow((mar4.getY()-y), 2)))==0&&mar4.getText()!="n"){
+                mar4.setText("n");
                 mar4.setVisible(false);
-                mar4.setEnabled(true);  
+                mar4.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((mar5.getX()-xd), 2))-(Math.pow((mar5.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((mar5.getX()-xd), 2))-(Math.pow((mar5.getY()-y), 2)))==0&&mar5.getText()!="n"){
+                mar5.setText("n");
                 mar5.setVisible(false);
-                mar5.setEnabled(true);  
+                mar5.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((mar6.getX()-xd), 2))-(Math.pow((mar6.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((mar6.getX()-xd), 2))-(Math.pow((mar6.getY()-y), 2)))==0&&mar6.getText()!="n"){
+                mar6.setText("n");
                 mar6.setVisible(false);
-                mar6.setEnabled(true);  
+                mar6.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((mar7.getX()-xd), 2))-(Math.pow((mar7.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((mar7.getX()-xd), 2))-(Math.pow((mar7.getY()-y), 2)))==0&&mar7.getText()!="n"){
+                mar7.setText("n");
                 mar7.setVisible(false);
-                mar7.setEnabled(true);  
+                mar7.setEnabled(false);  
                 hilo1=new Thread();
-        }else if(Math.sqrt((Math.pow((mar8.getX()-xd), 2))-(Math.pow((mar8.getY()-y), 2)))==0){
-            
+                
+                Puntaje.sumarPuntos();
+        }else if(Math.sqrt((Math.pow((mar8.getX()-xd), 2))-(Math.pow((mar8.getY()-y), 2)))==0&&mar8.getText()!="n"){
+                mar8.setText("n");
                 mar8.setVisible(false);
-                mar8.setEnabled(true);  
+                mar8.setEnabled(false);  
                 hilo1=new Thread();
+                
+                Puntaje.sumarPuntos();
         }
     }
     

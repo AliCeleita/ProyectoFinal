@@ -67,6 +67,11 @@ public class Inicio extends javax.swing.JFrame {
 
         bpuntajes.setBackground(new java.awt.Color(102, 102, 255));
         bpuntajes.setText("Puntajes");
+        bpuntajes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bpuntajesActionPerformed(evt);
+            }
+        });
         getContentPane().add(bpuntajes);
         bpuntajes.setBounds(210, 250, 160, 30);
 
@@ -114,6 +119,20 @@ public class Inicio extends javax.swing.JFrame {
         */
         
     }//GEN-LAST:event_bjugarActionPerformed
+
+    private void bpuntajesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bpuntajesActionPerformed
+        sonido.stop();
+        AudioClip laser= java.applet.Applet.newAudioClip(getClass().getResource("/Archivos/laser.wav"));
+        laser.play();
+        this.dispose();
+        Puntajes qwe = new Puntajes();
+        qwe.setVisible(true);
+        requestFocusInWindow();
+        /*
+        Se agrega el audio que estara al inicio del juego y al presionar 
+        un boton, se cambiara de JFrame
+        */
+    }//GEN-LAST:event_bpuntajesActionPerformed
 
     /**
      * @param args the command line arguments
